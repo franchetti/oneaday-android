@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionList
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                fragmentTransaction.replace(R.id.fragment, NotificationFragment())
+                fragmentTransaction.replace(R.id.fragment, NotificationsFragment())
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
