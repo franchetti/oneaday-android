@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val fragmentManager = supportFragmentManager
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionList
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                fragmentTransaction.replace(R.id.fragment, NotificationsFragment())
+                fragmentTransaction.replace(R.id.fragment, SettingsFragment())
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
