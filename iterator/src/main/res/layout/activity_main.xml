@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <fragment
+        android:id="@+id/fragment"
+        android:name="gq.emiliodallatorre.oneaday.iterator.MainFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
