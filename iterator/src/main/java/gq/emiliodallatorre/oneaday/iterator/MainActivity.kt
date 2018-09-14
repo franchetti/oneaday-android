@@ -4,7 +4,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
 
@@ -13,21 +12,20 @@ class MainActivity : AppCompatActivity(), MainFragment.OnFragmentInteractionList
         val fragmentTransaction = fragmentManager.beginTransaction()
         when (item.itemId) {
             R.id.navigation_home -> {
-                findViewById<TextView>(R.id.message).text = getString(R.string.title_home)
-                fragmentTransaction.add(R.id.fragment_main, MainFragment())
+                fragmentTransaction.replace(R.id.fragment, MainFragment())
+                fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                fragmentTransaction.replace(R.id.fragment_main, DashboardFragment())
+                fragmentTransaction.replace(R.id.fragment, DashboardFragment())
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                findViewById<TextView>(R.id.message).text = getString(R.string.title_notifications)
-                val fragment = MainFragment()
-                fragmentTransaction.add(R.id.fragment_main, fragment)
+                fragmentTransaction.replace(R.id.fragment, NotificationFragment())
+                fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
