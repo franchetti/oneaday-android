@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">One a Day</string>
+    <string name="d01">Close the water when you don\'t need it (for example when you wash your teeth)§Half of the water we use goes to waste due to evaporation caused by over-watering</string>
+    <string name="d02">Don\'t leave the stand-by mode on in your electronic devices§Phantom load is 10% of the energy use in US</string>
+    <string name="d03">Use the same plastic or glass bottle you used yesterday§In 2015, every inhabitant of EU generated 166.3kg of plastic waste</string>
+    <string name="d04">Don\'t throw away your waste on the pavement (for example cigarettes if you smoke)§Plastic takes 450 years or more to decompose</string>
+    <string name="d05">Eat biological products§In EU, 500kg of fertilizers are used for every hectare of arable land</string>
+    <string name="d06">Use air conditioning or heating only if necessary§Older air conditioners can consume up to 800% electricity of the new air conditioners</string>
+    <string name="d07">Separate your waste into plastic, organic, glass, paper, non-recyclable waste§On a single run of the Sunday New York Times not recycled, 75.000 trees are wasted</string>
+    <string name="d08">Buy a reusable bag for your shopping§https://earth911.com/living-well-being/repurpose-food-packaging/</string>
+    <string name="d09">Use your remaining water to water the plants§The outflow of water in the UK is 171 billions mc per year</string>
+    <string name="d10">Use bike or public transport for your movements§On-road vehicles cause one-third of air pollution that produces smog in US</string>
+    <string name="d11">Reuse packages (for example perfumes, shoes and soap boxes)</string>
+    <string name="d12">Take a cold shower instead of a hot one§Cold water causes your blood to circulate at faster rates to maintain ideal body temperature</string>
+    <string name="d13">Buy something made of recyclable material§Using recycled materials in a construction can reduce it\'s environmental impact of 45%</string>
+    <string name="d14">Wherever you go, pick up the litter which is not in the bin§Billions of tons of litter are dumped into the ocean each year and besides the 250 million trashes that is being generated each year too</string>
+    <string name="d15">Buy food from local sellers (for example: meat or groceries)§Locally grown food reduces the present average of 1300 miles food travels from "field to plate"</string>
+    <string name="d16">Support the green areas of your town by using them§The Earth has lost more than half of it\'s trees since humans first learn how to wald the axe</string>
+    <string name="d17">Get informed about a green association§https://en.wikipedia.org/wiki/List_of_environmental_organizations</string>
+    <string name="d18">Watch a documentary about environmental topics§<a href="https://www.bbc.co.uk/programs/b006mywy">Here</a>\'s an example</string>
+    <string name="d19">Make a marmalade from the fruit you don\'t eat§<a href="https://www.wikihow.com/Make-Jam">Here</a>\'s a simple guide</string>
+    <string name="d20">Don\'t use disposable stuff§In the UK, 7 million disposable coffee cups are used every day</string>
+    <string name="d21">Try to understand how big your carbon footprint is§<a href="https://www.carboonfootprint.com">Here</a>\'s a website to calculate your actual carbonm footprint</string>
+    <string name="d22">Try not to use elevators or escalators today§There are several benefits of using the stairs: it\'s free workout and it\'s an energy saver</string>
+    <string name="d23">Don\'t underestimate the power of your bottle tops§In France, 485 million of bottle tops have been used to build an orphanage in Madagascar</string>
+    <string name="d24">Choose one of the previous missions and redo it with one of your friends</string>
+    <string name="d25">Invent your own green mission and, if you want, let us know</string>
+    <string name="d26">Buy the seeds of your favourite tree</string>
+    <string name="d27">Your world is beautiful: just relax and admire it§https://youtu.be/pLCSTn6_uU0</string>
+    <string name="d28">Plant the seeds you\'ve bought (obviously, if you don\'t have a garden, you should go to a park)§https://www.treesaregood.org/treeowner/plantingatree</string>
+
 </resources>
