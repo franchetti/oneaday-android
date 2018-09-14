@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
-            listener?.onFragmentInteraction(uri)
+        listener?.onFragmentInteraction(uri)
     }
 
     override fun onAttach(context: Context) {
@@ -88,7 +88,8 @@ class MainFragment : Fragment() {
          * @return A new instance of fragment MainFragment.
          */
         // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
                 MainFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
