@@ -1,48 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="string/root_title">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        android:key="basic_preference"
-        android:title="string/title_basic_preference"
-        android:summary="string/summary_basic_preference" />
-
-    <Preference
-        android:key="stylish_preference"
-        android:title="string/title_stylish_preference"
-        android:summary="string/summary_stylish_preference" />
-
-    <Preference
-        android:key="preference_with_icon"
-        android:title="Preference with icon"
-        android:summary="This preference has an icon"
-        android:icon="@android:drawable/ic_menu_camera" />
-
-    <PreferenceCategory
-        android:title="asdh">
-
-        <CheckBoxPreference
-            android:key="checkbox_preference"
-            android:title="gns"
-            android:summary="sadn" />
-
-        <SwitchPreference
-            android:key="switch_preference"
-            android:title="Switch preference"
-            android:summary="This is a switch" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="ialog_based_preferences">
+    <PreferenceCategory android:title="@string/settings_general">
+        <EditTextPreference
+            android:key="userName"
+            android:title="@string/settings_userName"
+            android:dialogTitle="@string/settings_userNameSet" />
 
         <EditTextPreference
-            android:key="edittext_preference"
-            android:title="absdence"
-            android:summary="asg"
-            android:dialogTitle="asdf" />
+            android:key="userEmail"
+            android:title="@string/settings_userEmail"
+            android:dialogTitle="@string/settings_userEmailSet" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_notifications">
+        <SwitchPreference
+            android:key="notificationsSwitch"
+            android:title="@string/settings_notificationsSwitch"
+            android:defaultValue="true"/>
+
+        <CheckBoxPreference
+            android:key="apticFeedback"
+            android:title="@string/settings_vibrationTick"
+            android:summary="@string/settings_summary_vibrationTick"
+            android:defaultValue="false"/>
+
+        <ListPreference
+            android:key="notificationsTime"
+            android:title="@string/settings_notificationsTime"
+            android:summary="@string/settings_summary_notificationsTime"
+            android:entries="@array/notificationTimes"
+            android:entryValues="@array/notificationTimesCoded"
+            android:dialogTitle="@string/settings_summary_notificationsTime"
+            android:defaultValue="0"/>
+
+    </PreferenceCategory>
+    <!-- TODO: Add about section. -->
 
 </PreferenceScreen>
