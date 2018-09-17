@@ -4,12 +4,21 @@
     android:id="@+id/fragment_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/d01" />
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_light"
+        android:letterSpacing="0"
+        android:text="@string/title_dashboard"
+        android:textSize="44sp"
+        android:textStyle="bold" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/progressList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>
