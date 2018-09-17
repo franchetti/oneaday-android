@@ -5,7 +5,6 @@
     android:id="@+id/fragment_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="16dp"
     tools:context=".MainFragment">
 
     <android.support.constraint.ConstraintLayout
@@ -30,10 +29,10 @@
             android:id="@+id/progressList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/dashboard_title"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title"
+            android:scrollbars="none"/>
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
