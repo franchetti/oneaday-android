@@ -33,8 +33,8 @@ class CustomAdapter internal constructor(private val context: Context, private v
         val adviceModel: AdviceModel = adviceList[i]
 
         dashboardadvice.text = adviceModel.title
-        dashboarddate.text = "25"
-        dashboardmonth.text = "sep"
+        dashboarddate.text = adviceModel.date
+        dashboardmonth.text = "sept"
 
         /*
         rootView.setOnClickListener {
