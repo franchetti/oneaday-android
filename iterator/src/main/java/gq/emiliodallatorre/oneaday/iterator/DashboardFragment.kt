@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,6 +41,7 @@ class DashboardFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
@@ -60,6 +62,20 @@ class DashboardFragment: Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val adviceList = ArrayList<AdviceModel>()
+        for(i in 0 until 27) {
+            val adviceModel = AdviceModel()
+            adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
+            adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
+            adviceList.add(adviceModel)
+            System.out.println(resources.getStringArray(R.array.advicesTitle)[i])
+        }
+        activity!!.findViewById<ListView>(R.id.progressList).adapter = CustomAdapter(activity!!, adviceList)
     }
 
     /**
