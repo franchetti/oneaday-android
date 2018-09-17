@@ -29,12 +29,21 @@ class DashboardFragment: Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+    private val adviceList = ArrayList<AdviceModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+        for(i in 0 until 27) {
+            val adviceModel = AdviceModel()
+            adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
+            adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
+            adviceModel.date = (i + 1).toString()
+            adviceList.add(adviceModel)
+            System.out.println(resources.getStringArray(R.array.advicesTitle)[i])
         }
     }
 
@@ -67,14 +76,6 @@ class DashboardFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
-        val adviceList = ArrayList<AdviceModel>()
-        for(i in 0 until 27) {
-            val adviceModel = AdviceModel()
-            adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
-            adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
-            adviceList.add(adviceModel)
-            System.out.println(resources.getStringArray(R.array.advicesTitle)[i])
-        }
         activity!!.findViewById<ListView>(R.id.progressList).adapter = CustomAdapter(activity!!, adviceList)
     }
 
