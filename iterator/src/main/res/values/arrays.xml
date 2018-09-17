@@ -5,9 +5,73 @@
         <item>Noon</item>
         <item>Evening</item>
     </string-array>
+
     <string-array name="notificationTimesCoded">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <string-array name="advicesTitle">
+        <item>Close the water when you don\'t need it (for example when you wash your teeth)</item>
+        <item>Don\'t leave the stand-by mode on in your electronic devices</item>
+        <item>Use the same plastic or glass bottle you used yesterday</item>
+        <item>Don\'t throw away your waste on the pavement (for example cigarettes if you smoke)</item>
+        <item>Eat biological products</item>
+        <item>Use air conditioning or heating only if necessary</item>
+        <item>Separate your waste into plastic, organic, glass, paper, non-recyclable waste</item>
+        <item>Buy a reusable bag for your shopping</item>
+        <item>Use your remaining water to water the plants</item>
+        <item>Use bike or public transport for your movements</item>
+        <item>Reuse packages (for example perfumes, shoes and soap boxes)</item>
+        <item>Take a cold shower instead of a hot one</item>
+        <item>Buy something made of recyclable material</item>
+        <item>Wherever you go, pick up the litter which is not in the bin</item>
+        <item>Buy food from local sellers (for example: meat or groceries)</item>
+        <item>Support the green areas of your town by using them</item>
+        <item>Get informed about a green association</item>
+        <item>Watch a documentary about environmental topics</item>
+        <item>Make a marmalade from the fruit you don\'t eat</item>
+        <item>Don\'t use disposable stuff</item>
+        <item>Try to understand how big your carboon footprint is</item>
+        <item>Try not to use elevators or escalators today</item>
+        <item>Don\'t underestimate the power of your bottle tops</item>
+        <item>Choose one of the previous missions and redo it with one of your friends</item>
+        <item>Invent your own green mission and, if you want, let us know</item>
+        <item>Buy the seeds of your favourite tree</item>
+        <item>Your world is beautiful: just relax and admire it</item>
+        <item>Plant the seeds you\'ve bought (obviously, if you don\'t have a garden, you should go to a park)</item>
+    </string-array>
+
+    <string-array name="advicesSubtitle">
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>Phantom load is 10% of the energy use in US</item>
+        <item>In 2015, every inhabitant of EU generated 166.3kg of plastic waste</item>
+        <item>Plastic takes 450 years or more to decompose</item>
+        <item>In EU, 500kg of fertilizers are used for every hectare of arable land</item>
+        <item>Older air conditioners can consume up to 800% electricity of the new air conditioners</item>
+        <item>On a single run of the Sunday New York Times not recycled, 75.000 trees are wasted</item>
+        <item>https://earth911.com/living-well-being/repurpose-food-packaging/</item>
+        <item>The outflow of water in the UK is 171 billions mc per year</item>
+        <item>On-road vehicles cause one-third of air pollution that produces smog in US</item>
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>Cold water causes your blood to circulate at faster rates to mantain ideal body temperature</item>
+        <item>Using recycled materials in a construction can reduce it\'s environmental impact of 45%</item>
+        <item>Billions of tons of litter are dumped into the ocean each year and besides the 250 million trashes that is being generated each year too</item>
+        <item>Locally grown food reduces the present average of 1300 miles food travels from "field to plate"</item>
+        <item>The Earth has lost more than half of it\'s trees since humans first learn how to weald the axe</item>
+        <item>https://en.wikipedia.org/wiki/List_of_environmental_organizations</item>
+        <item><a href="https://www.bbc.co.uk/programs/b006mywy">Here</a>\'s an example</item>
+        <item><a href="https://www.wikihow.com/Make-Jam">Here</a>\'s a simple guide</item>
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>In the UK, 7 million disposable coffee cups are used every day</item>
+        <item><a href="https://www.carboonfootprint.com">Here</a>\'s a website to calculate your actual carbonm footprint</item>
+        <item>There are several benefits of using the stairs: it\'s free workout and it\'s an energy saver</item>
+        <item>In France, 485 million of bottle tops have been used to build an orphanage in Madagascar</item>
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>Half of the water we use goes to waste due to evaporation caused by over-watering</item>
+        <item>https://youtu.be/pLCSTn6_uU0</item>
+        <item>https://www.treesaregood.org/treeowner/plantingatree</item>
     </string-array>
 </resources>
