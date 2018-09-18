@@ -2,12 +2,16 @@ package gq.emiliodallatorre.oneaday.iterator
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Paint
 import android.support.constraint.ConstraintLayout
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import java.util.*
+
+
 
 class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>): BaseAdapter() {
 
@@ -35,6 +39,10 @@ class CustomAdapter internal constructor(private val context: Context, private v
         dashboardadvice.text = adviceModel.title
         dashboarddate.text = adviceModel.date
         dashboardmonth.text = "sept"
+
+        if(Integer.parseInt(adviceModel.date) < (Calendar.DAY_OF_MONTH)) {
+            dashboardadvice.paintFlags = dashboardadvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
 
         /*
         rootView.setOnClickListener {
