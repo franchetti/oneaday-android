@@ -5,9 +5,11 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import java.util.*
 
@@ -64,6 +66,10 @@ class MainFragment: Fragment() {
         super.onStart()
         ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
         ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
+        ((context as Activity).findViewById(R.id.progressBar) as ProgressBar).isIndeterminate = false
+        ((context as Activity).findViewById(R.id.progressBar) as ProgressBar).max = 27
+        ((context as Activity).findViewById(R.id.progressBar) as ProgressBar).progress = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("startDay", "1"))
+
     }
 
     /**

@@ -20,7 +20,7 @@
         <CheckBoxPreference
             android:key="firstStart"
             android:visibility="invisible"
-            android:defaultValue="false" />
+            android:defaultValue="4" />
 
     </PreferenceCategory>
 
