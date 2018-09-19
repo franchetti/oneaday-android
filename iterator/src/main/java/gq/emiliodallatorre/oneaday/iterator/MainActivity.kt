@@ -12,6 +12,7 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
+
         when (item.itemId) {
             R.id.navigation_home -> {
                 fragmentTransaction.replace(R.id.fragment, MainFragment())
@@ -38,6 +39,14 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Load main fragment at start.
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.fragment, MainFragment())
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+
         findViewById<BottomNavigationView>(R.id.navigation).setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 

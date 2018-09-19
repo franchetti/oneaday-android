@@ -36,7 +36,6 @@
             android:fontFamily="@font/comfortaa_light"
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
-            android:text="Close the water when you don\'t need it (for example when you wash your teeth)"
             android:textAlignment="center"
 
             android:textColor="#000"
@@ -53,11 +52,11 @@
             android:layout_height="wrap_content"
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
-            android:text="Half of the water we use goes to waste due to evaporation caused by over-watering"
             android:textAlignment="center"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/advice_title"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:progressDrawable="@drawable/circular"/>
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
