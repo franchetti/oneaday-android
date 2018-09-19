@@ -17,6 +17,8 @@
     <string name="settings_userNameSet">Set here your name</string>
     <string name="settings_userEmail">Your email</string>
     <string name="settings_userEmailSet">Set here your email</string>
+    <string name="settings_startDay">Starting day</string>
+    <string name="settings_startDaySet">Select the day of month you started using this app</string>
 
     <string name="settings_summary_vibrationTick">Uncheck to disable vibration</string>
     <string name="settings_summary_notificationsTime">Select time for notification</string>

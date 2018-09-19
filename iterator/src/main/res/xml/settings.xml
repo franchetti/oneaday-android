@@ -13,6 +13,14 @@
             android:title="@string/settings_userEmail"
             android:dialogTitle="@string/settings_userEmailSet" />
 
+        <EditTextPreference
+            android:key="startDay"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/settings_startDay"
+            android:inputType="number"
+            android:dialogTitle="@string/settings_startDaySet" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_notifications">
