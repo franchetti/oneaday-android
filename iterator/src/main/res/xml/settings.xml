@@ -19,7 +19,8 @@
 
         <CheckBoxPreference
             android:key="firstStart"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
