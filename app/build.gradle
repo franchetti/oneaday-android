@@ -2,17 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    
-
 
     defaultConfig {
         applicationId "gq.emiliodallatorre.oneaday.app"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
-
-
+        versionName "0.1 - 20 set 2018"
     }
 
     buildTypes {
@@ -21,7 +17,6 @@ android {
            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
        }
     }
-
 }
 
 dependencies {
