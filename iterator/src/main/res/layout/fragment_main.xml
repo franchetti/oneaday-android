@@ -19,11 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            donut_progress="0"
             app:layout_constraintBottom_toTopOf="@+id/advice_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintDimensionRatio="w,1:1"/>
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:donut_text_color="@color/colorAccent"
+            app:donut_circle_starting_degree="270"
+            app:donut_max="28"
+            app:donut_text_size="34sp"/>
 
         <TextView
             android:id="@+id/advice_title"

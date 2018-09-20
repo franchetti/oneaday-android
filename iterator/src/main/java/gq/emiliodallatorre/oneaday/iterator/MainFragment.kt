@@ -64,11 +64,14 @@ class MainFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+        val donutProgress: DonutProgress = (context as Activity).findViewById(R.id.progressBar) as DonutProgress
+        val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("startDay", "1") + 1)
         ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
         ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
-        ((context as Activity).findViewById(R.id.progressBar) as DonutProgress).max = 27
-        ((context as Activity).findViewById(R.id.progressBar) as DonutProgress).progress = (Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("startDay", "1"))).toFloat()
-
+        donutProgress.text = getString(R.string.main_day) + " $dayOfPath " + getString(R.string.main_of) + " 28"
+        donutProgress.progress = dayOfPath.toFloat()
+        donutProgress.unfinishedStrokeWidth = (50).toFloat()
+        donutProgress.finishedStrokeWidth = (1000).toFloat()
     }
 
     /**
