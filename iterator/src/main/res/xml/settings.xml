@@ -14,13 +14,11 @@
             android:dialogTitle="@string/settings_userEmailSet" />
 
         <EditTextPreference
-            android:key="startDay"
-            android:visibility="invisible" />
+            android:key="startDay" />
 
         <CheckBoxPreference
             android:key="firstStart"
-            android:visibility="invisible"
-            android:defaultValue="4" />
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 

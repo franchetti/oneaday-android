@@ -70,8 +70,8 @@ class MainFragment: Fragment() {
         ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
         donutProgress.text = getString(R.string.main_day) + " $dayOfPath " + getString(R.string.main_of) + " 28"
         donutProgress.progress = dayOfPath.toFloat()
-        donutProgress.unfinishedStrokeWidth = (50).toFloat()
-        donutProgress.finishedStrokeWidth = (1000).toFloat()
+        donutProgress.finishedStrokeWidth = (100).toFloat()
+        donutProgress.unfinishedStrokeWidth = (20).toFloat()
     }
 
     /**
