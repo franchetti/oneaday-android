@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
+        <com.github.lzyzsd.circleprogress.DonutProgress
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -22,7 +22,8 @@
             app:layout_constraintBottom_toTopOf="@+id/advice_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="w,1:1"/>
 
         <TextView
             android:id="@+id/advice_title"
