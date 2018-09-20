@@ -12,6 +12,8 @@ class SettingsFragment: PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
         setPreferencesFromResource(R.xml.settings, rootKey)
         findPreference("apticFeedback").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
         findPreference("notificationsTime").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
+        findPreference("startDay").isVisible = false
+        findPreference("firstStart").isVisible = false
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
     }
 
