@@ -4,10 +4,12 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import java.util.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,11 +39,39 @@ class DashboardFragment: Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+        val dayOfMonth: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val startDay: Int = PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
+        var f = 0
+        when (currentMonth + 1) {
+            1 -> f = 31
+            2 -> f = 28
+            3 -> f = 31
+            4 -> f = 30
+            5 -> f = 31
+            6 -> f = 30
+            7 -> f = 31
+            8 -> f = 31
+            9 -> f = 30
+            10 -> f = 31
+            11 -> f = 30
+            12 -> f = 31
+        }
+
         for(i in 0 until 27) {
             val adviceModel = AdviceModel()
+            if((startDay + i) > f) {
+                adviceModel.date = (startDay + i - f)
+                adviceModel.month = (currentMonth + 1)
+                adviceModel.bar = false
+            } else {
+                adviceModel.date = (startDay + i)
+                adviceModel.month = currentMonth
+                adviceModel.bar = (adviceModel.date!! < dayOfMonth)
+            }
             adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
             adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
-            adviceModel.date = (i + 1).toString()
             adviceList.add(adviceModel)
         }
     }

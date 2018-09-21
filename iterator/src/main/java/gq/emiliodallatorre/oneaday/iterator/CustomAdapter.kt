@@ -29,18 +29,17 @@ class CustomAdapter internal constructor(private val context: Context, private v
 
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
         val rootView: ConstraintLayout = (context as Activity).layoutInflater.inflate(R.layout.custom_adapter, null) as ConstraintLayout
+        val adviceModel: AdviceModel = adviceList[i]
 
-        val dashboardAdvice: TextView = rootView.findViewById(R.id.dashboard_advice) as TextView
+        val dashboardAdvice = (rootView.findViewById(R.id.dashboard_advice) as TextView)
         val dashboardDate: TextView = rootView.findViewById(R.id.dashboard_date) as TextView
         val dashboardMonth: TextView = rootView.findViewById(R.id.dashboard_month) as TextView
 
-        val adviceModel: AdviceModel = adviceList[i]
-
         dashboardAdvice.text = adviceModel.title
-        dashboardDate.text = adviceModel.date
-        dashboardMonth.text = "sept"
+        dashboardDate.text = adviceModel.date.toString()
+        dashboardMonth.text = (context).resources.getStringArray(R.array.months)[adviceModel.month!!]
 
-        if(Integer.parseInt(adviceModel.date) < Calendar.getInstance().get(Calendar.DAY_OF_MONTH)) {
+        if(adviceModel.bar!!) {
             dashboardAdvice.paintFlags = dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }
 

@@ -3,5 +3,7 @@ package gq.emiliodallatorre.oneaday.iterator
 class AdviceModel {
     var title: String? = null
     var subtitle: String? = null
-    lateinit var date: String
+    var date: Int? = null
+    var month: Int? = null
+    var bar: Boolean? = null
 }
