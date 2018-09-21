@@ -13,9 +13,6 @@
             android:title="@string/settings_userEmail"
             android:dialogTitle="@string/settings_userEmailSet" />
 
-        <EditTextPreference
-            android:key="startDay" />
-
         <CheckBoxPreference
             android:key="firstStart"
             android:defaultValue="true" />

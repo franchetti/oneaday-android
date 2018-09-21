@@ -4,7 +4,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-
+import android.support.v7.preference.PreferenceManager
+import java.util.*
 
 
 class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
@@ -12,6 +13,7 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
+
 
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -39,6 +41,15 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        System.out.println(Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString())
+
+        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean("firstStart", true)) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+            val editor = preferences.edit()
+            editor.putInt("startDay", Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
+            editor.putBoolean("firstStart", false)
+            editor.apply()
+        }
 
         // Load main fragment at start.
         val fragmentManager = supportFragmentManager

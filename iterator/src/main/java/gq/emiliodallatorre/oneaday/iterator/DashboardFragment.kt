@@ -43,7 +43,6 @@ class DashboardFragment: Fragment() {
             adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
             adviceModel.date = (i + 1).toString()
             adviceList.add(adviceModel)
-            System.out.println(resources.getStringArray(R.array.advicesTitle)[i])
         }
     }
 
