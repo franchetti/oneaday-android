@@ -74,4 +74,19 @@
         <item>https://youtu.be/pLCSTn6_uU0</item>
         <item>https://www.treesaregood.org/treeowner/plantingatree</item>
     </string-array>
+
+    <string-array name="months">
+        <item>jan</item>
+        <item>feb</item>
+        <item>mar</item>
+        <item>apr</item>
+        <item>may</item>
+        <item>jun</item>
+        <item>jul</item>
+        <item>aug</item>
+        <item>sept</item>
+        <item>oct</item>
+        <item>nov</item>
+        <item>dec</item>
+    </string-array>
 </resources>
