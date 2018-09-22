@@ -26,7 +26,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class DashboardFragment: Fragment() {
+class DashboardFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -40,35 +40,64 @@ class DashboardFragment: Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        var currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
+        val currentMonth: Int = Calendar.getInstance().get(Calendar.MONTH)
         val dayOfMonth: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         val startDay: Int = PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
         var f = 0
-        when (currentMonth + 1) {
-            1 -> f = 31
-            2 -> f = 28
-            3 -> f = 31
-            4 -> f = 30
-            5 -> f = 31
-            6 -> f = 30
-            7 -> f = 31
-            8 -> f = 31
-            9 -> f = 30
-            10 -> f = 31
-            11 -> f = 30
-            12 -> f = 31
-        }
 
-        for(i in 0 until 27) {
+
+        for (i in 0 until 27) {
             val adviceModel = AdviceModel()
-            if((startDay + i) > f) {
-                adviceModel.date = (startDay + i - f)
-                adviceModel.month = (currentMonth + 1)
-                adviceModel.bar = false
+            if (startDay > dayOfMonth) {
+                when (currentMonth) {
+                    0 -> f = 31
+                    1 -> f = 31
+                    2 -> f = 28
+                    3 -> f = 31
+                    4 -> f = 30
+                    5 -> f = 31
+                    6 -> f = 30
+                    7 -> f = 31
+                    8 -> f = 31
+                    9 -> f = 30
+                    10 -> f = 31
+                    11 -> f = 30
+                    12 -> f = 31
+                }
+                if ((startDay + i) > f) {
+                    adviceModel.date = (startDay + i - f)
+                    adviceModel.month = (currentMonth + 1)
+                    adviceModel.bar = false
+                } else {
+                    adviceModel.date = (startDay + i)
+                    adviceModel.month = currentMonth
+                    adviceModel.bar = (adviceModel.date!! < dayOfMonth)
+                }
             } else {
-                adviceModel.date = (startDay + i)
-                adviceModel.month = currentMonth
-                adviceModel.bar = (adviceModel.date!! < dayOfMonth)
+                when (currentMonth + 1) {
+                    1 -> f = 31
+                    2 -> f = 28
+                    3 -> f = 31
+                    4 -> f = 30
+                    5 -> f = 31
+                    6 -> f = 30
+                    7 -> f = 31
+                    8 -> f = 31
+                    9 -> f = 30
+                    10 -> f = 31
+                    11 -> f = 30
+                    12 -> f = 31
+                    13 -> f = 31
+                }
+                if ((startDay + i) > f) {
+                    adviceModel.date = (startDay + i - f)
+                    adviceModel.month = (currentMonth + 1)
+                    adviceModel.bar = false
+                } else {
+                    adviceModel.date = (startDay + i)
+                    adviceModel.month = currentMonth
+                    adviceModel.bar = (adviceModel.date!! < dayOfMonth)
+                }
             }
             adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
             adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
