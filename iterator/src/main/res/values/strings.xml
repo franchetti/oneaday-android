@@ -6,8 +6,8 @@
     <string name="main_day">day</string>
     <string name="main_of">of</string>
 
-    <string name="notifications_title">Titolo</string>
-    <string name="notifications_subtitle">Sottotitolo un po\' più lungo</string>
+    <string name="notifications_title">Let\’s help your planet!</string>
+    <string name="notifications_subtitle">Your effort is important, don\'t underestimate it</string>
 
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
