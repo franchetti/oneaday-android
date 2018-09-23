@@ -17,7 +17,7 @@ class NotificationService : BroadcastReceiver() {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         createNotificationChannel(context)
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle((context as Activity).getString(R.string.notifications_title))
                 .setContentText((context as Activity).getString(R.string.notifications_subtitle))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
