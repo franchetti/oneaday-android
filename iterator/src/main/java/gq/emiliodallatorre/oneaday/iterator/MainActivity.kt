@@ -47,6 +47,7 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
             val preferences = PreferenceManager.getDefaultSharedPreferences(this)
             val editor = preferences.edit()
             editor.putInt("startDay", Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
+            editor.putInt("startMonth", Calendar.getInstance().get(Calendar.MONTH))
             editor.putBoolean("firstStart", false)
             editor.apply()
         }
