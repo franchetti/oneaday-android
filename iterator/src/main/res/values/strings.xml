@@ -6,6 +6,9 @@
     <string name="main_day">day</string>
     <string name="main_of">of</string>
 
+    <string name="notifications_title">Titolo</string>
+    <string name="notifications_subtitle">Sottotitolo un po\' più lungo</string>
+
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_notificationsSwitch">Enable daily notifications</string>
