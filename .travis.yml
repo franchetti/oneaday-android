@@ -43,4 +43,4 @@ cache:
     - $HOME/.android/build-cache
 
 script:
-  - ./gradlew :app:build :app:assembleDebug
+  - ./gradlew build :app:assembleDebug
