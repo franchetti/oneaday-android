@@ -1,9 +1,8 @@
 package gq.emiliodallatorre.oneaday.iterator
 
-import android.app.Activity
+import android.app.IntentService
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -11,19 +10,19 @@ import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat.getSystemService
 
-class NotificationService : BroadcastReceiver() {
+class NotificationService : IntentService("NotificationService") {
 
-    override fun onReceive(context: Context, intent: Intent) {
+    override fun onHandleIntent(intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-        createNotificationChannel(context)
-        val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
+        createNotificationChannel(this)
+        val mBuilder = NotificationCompat.Builder(this, "oneADay-notifications")
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle((context as Activity).getString(R.string.notifications_title))
-                .setContentText((context as Activity).getString(R.string.notifications_subtitle))
+                .setContentTitle(getString(R.string.notifications_title))
+                .setContentText(getString(R.string.notifications_subtitle))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-        val notificationManager = NotificationManagerCompat.from(context)
+        val notificationManager = NotificationManagerCompat.from(this)
 
-// notificationId is a unique int for each notification that you must define
+        // TODO: Define notification ID.
         notificationManager.notify(1, mBuilder.build())
     }
 

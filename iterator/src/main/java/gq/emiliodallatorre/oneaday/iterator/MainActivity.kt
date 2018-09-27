@@ -1,5 +1,9 @@
 package gq.emiliodallatorre.oneaday.iterator
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -50,6 +54,17 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
             editor.putInt("startMonth", Calendar.getInstance().get(Calendar.MONTH))
             editor.putBoolean("firstStart", false)
             editor.apply()
+
+            // TODO: Setup notifications.
+            val notifyIntent = Intent(this, NotificationReceiver::class.java)
+            val pendingIntent = PendingIntent.getBroadcast(this, 1,  notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.HOUR_OF_DAY, 16)
+            calendar.set(Calendar.MINUTE, 25)
+            calendar.set(Calendar.SECOND, 0)
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
+                    1000 * 60 * 60 * 24, pendingIntent)
         }
 
         // Load main fragment at start.
