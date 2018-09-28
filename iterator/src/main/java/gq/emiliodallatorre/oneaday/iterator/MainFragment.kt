@@ -66,8 +66,8 @@ class MainFragment: Fragment() {
         super.onStart()
         val donutProgress: DonutProgress = (context as Activity).findViewById(R.id.progressBar) as DonutProgress
         val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1) + 1
-        ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
-        ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH)]
+        ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[dayOfPath]
+        ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[dayOfPath]
         donutProgress.text = getString(R.string.main_day) + " $dayOfPath " + getString(R.string.main_of) + " 28"
         donutProgress.progress = dayOfPath.toFloat()
         donutProgress.finishedStrokeWidth = (100).toFloat()

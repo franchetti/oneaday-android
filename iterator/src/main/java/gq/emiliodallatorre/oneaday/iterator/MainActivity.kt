@@ -4,20 +4,24 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
 import java.util.*
+import android.support.v4.content.ContextCompat.getSystemService
 
+val BROADCAST = "gq.emiliodallatorre.oneaday.app.android.action.broadcast"
 
 class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-
+        val intentFilter = IntentFilter(BROADCAST)
+        registerReceiver(NotificationReceiver(), intentFilter)
 
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -56,15 +60,17 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
             editor.apply()
 
             // TODO: Setup notifications.
-            val notifyIntent = Intent(this, NotificationReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(this, 1,  notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val pendingIntent = PendingIntent.getBroadcast(this, 0, Intent(BROADCAST), PendingIntent.FLAG_UPDATE_CURRENT)
+            val alarmManager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
             val calendar = Calendar.getInstance()
-            calendar.set(Calendar.HOUR_OF_DAY, 16)
-            calendar.set(Calendar.MINUTE, 25)
-            calendar.set(Calendar.SECOND, 0)
+            calendar.timeInMillis = System.currentTimeMillis()
+            calendar.set(Calendar.HOUR_OF_DAY, 18)
+            calendar.set(Calendar.MINUTE, 53)
+            calendar.set(Calendar.SECOND, 1)
+
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
-                    1000 * 60 * 60 * 24, pendingIntent)
+                    (1000 * 60 * 60 * 24).toLong(), pendingIntent)
         }
 
         // Load main fragment at start.

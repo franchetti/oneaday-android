@@ -25,17 +25,14 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".NotificationService"
-            android:enabled="true"
-            android:exported="false" >
-        </service>
-
         <receiver
             android:name=".NotificationReceiver"
             android:enabled="true"
-            android:exported="false">
-
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+            <intent-filter >
+                <action android:name="gq.emiliodallatorre.oneaday.app.android.action.broadcast"/>
+            </intent-filter>
         </receiver>
     </application>
 
