@@ -11,8 +11,8 @@ android {
         applicationId "gq.emiliodallatorre.oneaday.app"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "0.3 - 23 set 2018"
+        versionCode 4
+        versionName "0.4 - 28 set 2018"
         vectorDrawables.useSupportLibrary = true
     }
 
