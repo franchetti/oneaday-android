@@ -36,7 +36,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
 
-            when (PreferenceManager.getDefaultSharedPreferences(context).getInt("notificationsTime", 0)) {
+            when (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("notificationsTime", "0")!!)) {
                 0 -> calendar.set(Calendar.HOUR_OF_DAY, 9)
                 1 -> calendar.set(Calendar.HOUR_OF_DAY, 12)
                 2 -> calendar.set(Calendar.HOUR_OF_DAY, 18)
