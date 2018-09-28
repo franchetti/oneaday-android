@@ -9,6 +9,7 @@ import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.preference.PreferenceManager
 
 class NotificationReceiver : BroadcastReceiver() {
 
@@ -22,7 +23,7 @@ class NotificationReceiver : BroadcastReceiver() {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(1, mBuilder.build())
-        System.out.println("NOTIFICATED")
+
     }
 
     // Create a channel for the notifications, required since Android Oreo.
@@ -34,6 +35,7 @@ class NotificationReceiver : BroadcastReceiver() {
             val description = "Channel for notification from \"One a Day\" app."
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel("oneADay-notifications", name, importance)
+            channel.enableVibration(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("apticFeedback", false))
             channel.description = description
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
