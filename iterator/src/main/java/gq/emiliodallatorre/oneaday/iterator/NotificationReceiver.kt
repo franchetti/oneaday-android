@@ -2,6 +2,7 @@ package gq.emiliodallatorre.oneaday.iterator
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -15,15 +16,23 @@ class NotificationReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+
         createNotificationChannel(context)
+
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle(context.getString(R.string.notifications_title))
                 .setContentText(context.getString(R.string.notifications_subtitle))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
         val notificationManager = NotificationManagerCompat.from(context)
-        notificationManager.notify(1, mBuilder.build())
 
+        notificationManager.notify(1, mBuilder.build())
     }
 
     // Create a channel for the notifications, required since Android Oreo.
