@@ -64,6 +64,7 @@ class MainFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+        // TODO: Setup things for lastDay of path.
         val donutProgress: DonutProgress = (context as Activity).findViewById(R.id.progressBar) as DonutProgress
         val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1) + 1
         ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[dayOfPath]

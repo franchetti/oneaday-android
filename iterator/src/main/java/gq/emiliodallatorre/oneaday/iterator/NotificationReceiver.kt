@@ -14,6 +14,7 @@ import android.support.v7.preference.PreferenceManager
 
 class NotificationReceiver : BroadcastReceiver() {
 
+    // TODO: Fix notification icon, that is actually a circle.
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         val action = Intent(context, MainActivity::class.java).apply {

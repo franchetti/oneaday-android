@@ -11,8 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import java.util.*
 
-
-
+// TODO: Use recyclerView.
 class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>): BaseAdapter() {
 
     override fun getCount(): Int {
