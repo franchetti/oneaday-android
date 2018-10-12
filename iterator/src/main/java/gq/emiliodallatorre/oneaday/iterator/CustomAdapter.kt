@@ -2,6 +2,7 @@ package gq.emiliodallatorre.oneaday.iterator
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.support.constraint.ConstraintLayout
 import android.util.Log
@@ -42,16 +43,14 @@ class CustomAdapter internal constructor(private val context: Context, private v
             dashboardAdvice.paintFlags = dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }
 
-        /*
+
         rootView.setOnClickListener {
-            val link = model.link
-            val intent = Intent(context, ArticleView::class.java)
-            intent.putExtra("link", link)
-            intent.putExtra("title", model.title)
-            intent.putExtra("creator", creator)
+            val intent = Intent(context, AdviceView::class.java)
+            intent.putExtra("advice", adviceModel.title)
+            intent.putExtra("date", adviceModel.date.toString())
+            intent.putExtra("month", (context).resources.getStringArray(R.array.months)[adviceModel.month!!])
             context.startActivity(intent)
         }
-        */
 
         // rootView.setOnTouchListener { view, motionEvent -> false }
 

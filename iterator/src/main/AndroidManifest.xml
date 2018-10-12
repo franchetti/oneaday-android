@@ -29,11 +29,16 @@
             android:name=".NotificationReceiver"
             android:enabled="true"
             android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" >
-            <intent-filter >
-                <action android:name="gq.emiliodallatorre.oneaday.app.android.action.broadcast"/>
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="gq.emiliodallatorre.oneaday.app.android.action.broadcast" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".AdviceView"
+            android:label="@string/title_activity_advice_view"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
