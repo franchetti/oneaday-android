@@ -28,7 +28,7 @@ class NotificationReceiver : BroadcastReceiver() {
         createNotificationChannel(context)
 
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher))
                 .setColor(ResourcesCompat.getColor(context.resources, R.color.colorPrimaryDark, null))
                 .setContentTitle(context.getString(R.string.notifications_title))
