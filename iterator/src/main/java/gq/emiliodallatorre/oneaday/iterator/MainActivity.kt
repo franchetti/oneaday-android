@@ -20,8 +20,6 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        val intentFilter = IntentFilter(BROADCAST)
-        registerReceiver(NotificationReceiver(), intentFilter)
 
         when (item.itemId) {
             R.id.navigation_home -> {
