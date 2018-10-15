@@ -58,23 +58,6 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
             editor.putInt("startMonth", Calendar.getInstance().get(Calendar.MONTH))
             editor.putBoolean("firstStart", false)
             editor.apply()
-
-            val pendingIntent = PendingIntent.getBroadcast(this, 1201, Intent(BROADCAST), PendingIntent.FLAG_UPDATE_CURRENT)
-            val alarmManager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-            val calendar = Calendar.getInstance()
-            calendar.timeInMillis = System.currentTimeMillis()
-
-            when (PreferenceManager.getDefaultSharedPreferences(this).getInt("notificationsTime", 0)) {
-                0 -> calendar.set(Calendar.HOUR_OF_DAY, 9)
-                1 -> calendar.set(Calendar.HOUR_OF_DAY, 12)
-                2 -> calendar.set(Calendar.HOUR_OF_DAY, 18)
-            }
-
-            calendar.set(Calendar.MINUTE, 0)
-            calendar.set(Calendar.SECOND, 0)
-
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, (1000 * 60 * 60 * 24).toLong(), pendingIntent)
         }
 
         // Load main fragment at start.

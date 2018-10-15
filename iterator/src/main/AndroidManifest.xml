@@ -34,11 +34,22 @@
                 <action android:name="gq.emiliodallatorre.oneaday.app.android.action.broadcast" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+        </receiver>
 
         <activity
             android:name=".AdviceView"
             android:label="@string/title_activity_advice_view"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
