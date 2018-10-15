@@ -43,16 +43,14 @@ class CustomAdapter internal constructor(private val context: Context, private v
             dashboardAdvice.paintFlags = dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }
 
-
+        /* TODO: To be implemented.
         rootView.setOnClickListener {
             val intent = Intent(context, AdviceView::class.java)
             intent.putExtra("advice", adviceModel.title)
             intent.putExtra("date", adviceModel.date.toString())
             intent.putExtra("month", (context).resources.getStringArray(R.array.months)[adviceModel.month!!])
             context.startActivity(intent)
-        }
-
-        // rootView.setOnTouchListener { view, motionEvent -> false }
+        } */
 
         Log.d(context.localClassName, adviceModel.title)
         return rootView
