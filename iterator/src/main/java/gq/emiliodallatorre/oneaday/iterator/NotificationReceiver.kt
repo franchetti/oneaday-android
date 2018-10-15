@@ -6,10 +6,12 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.preference.PreferenceManager
 
 class NotificationReceiver : BroadcastReceiver() {
@@ -27,6 +29,8 @@ class NotificationReceiver : BroadcastReceiver() {
 
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
                 .setSmallIcon(R.drawable.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher))
+                .setColor(ResourcesCompat.getColor(context.resources, R.color.colorPrimaryDark, null))
                 .setContentTitle(context.getString(R.string.notifications_title))
                 .setContentText(context.getString(R.string.notifications_subtitle))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
