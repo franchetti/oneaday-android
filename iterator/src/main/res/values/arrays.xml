@@ -75,6 +75,37 @@
         <item>https://www.treesaregood.org/treeowner/plantingatree</item>
     </string-array>
 
+    <string-array name="advicesBody">
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum luctus diam id dictum. Vivamus ac velit augue. Integer pretium sodales sapien, nec iaculis ex pellentesque sed. Phasellus velit ante, pellentesque ut aliquam blandit, fringilla vel tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse vulputate libero vitae ante rhoncus, eu rhoncus risus consectetur. Integer at ex pellentesque, scelerisque erat quis, sagittis risus. Aliquam facilisis auctor massa vitae tincidunt. Donec ac convallis turpis, ut vehicula nunc. Nunc a eleifend arcu. Praesent porta nibh tortor, id mollis mi tempus quis. Donec vulputate sapien nec nibh viverra, sed blandit purus eleifend. Nunc ut odio magna. Aliquam condimentum ligula non neque dictum, sed commodo odio ullamcorper. Integer vehicula arcu eget ipsum feugiat ultrices. Integer scelerisque sed ligula in molestie. Quisque facilisis fermentum arcu, ac interdum dui aliquet id. Fusce vitae justo id dolor pharetra malesuada. Fusce blandit malesuada odio vitae aliquet. Aliquam luctus congue erat, eget dictum lacus rutrum sit amet. Donec vitae tincidunt elit. Mauris tempor nisl libero, lacinia aliquam elit aliquam id. Proin posuere interdum libero quis gravida. Nulla dapibus quam sed risus porta, non luctus dolor consectetur. Fusce vestibulum mattis ligula in luctus. Maecenas lectus lectus, condimentum vel enim ultricies, dignissim tristique arcu. Donec ultricies lacinia justo non malesuada. Aenean finibus ex eu nisl tincidunt egestas. Nunc purus urna, porttitor eget molestie quis, convallis a ipsum. Etiam nisl enim, vestibulum in ipsum nec, accumsan dignissim turpis. Sed vel felis lacus.</item>
+        <item>Don\'t leave the stand-by mode on in your electronic devices</item>
+        <item>Use the same plastic or glass bottle you used yesterday</item>
+        <item>Don\'t throw away your waste on the pavement (for example cigarettes if you smoke)</item>
+        <item>Eat biological products</item>
+        <item>Use air conditioning or heating only if necessary</item>
+        <item>Separate your waste into plastic, organic, glass, paper, non-recyclable waste</item>
+        <item>Buy a reusable bag for your shopping</item>
+        <item>Use your remaining water to water the plants</item>
+        <item>Use bike or public transport for your movements</item>
+        <item>Reuse packages (for example perfumes, shoes and soap boxes)</item>
+        <item>Take a cold shower instead of a hot one</item>
+        <item>Buy something made of recyclable material</item>
+        <item>Wherever you go, pick up the litter which is not in the bin</item>
+        <item>Buy food from local sellers (for example: meat or groceries)</item>
+        <item>Support the green areas of your town by using them</item>
+        <item>Get informed about a green association</item>
+        <item>Watch a documentary about environmental topics</item>
+        <item>Make a marmalade from the fruit you don\'t eat</item>
+        <item>Don\'t use disposable stuff</item>
+        <item>Try to understand how big your carbon footprint is</item>
+        <item>Try not to use elevators or escalators today</item>
+        <item>Don\'t underestimate the power of your bottle tops</item>
+        <item>Choose one of the previous missions and redo it with one of your friends</item>
+        <item>Invent your own green mission and, if you want, let us know</item>
+        <item>Buy the seeds of your favourite tree</item>
+        <item>Your world is beautiful: just relax and admire it</item>
+        <item>Plant the seeds you\'ve bought (obviously, if you don\'t have a garden, you should go to a park)</item>
+    </string-array>
+
     <string-array name="months">
         <item>jan</item>
         <item>feb</item>
