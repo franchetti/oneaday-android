@@ -4,14 +4,12 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
 import java.util.*
-import android.support.v4.content.ContextCompat.getSystemService
 
 val BROADCAST = "gq.emiliodallatorre.oneaday.app.android.action.broadcast"
 
@@ -32,7 +30,6 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
                 fragmentTransaction.replace(R.id.fragment, DashboardFragment())
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
-                sendBroadcast(Intent(BROADCAST))
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {

@@ -11,10 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import java.util.*
-import android.view.View.Y
-import android.view.View.X
-import android.widget.ScrollView
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match

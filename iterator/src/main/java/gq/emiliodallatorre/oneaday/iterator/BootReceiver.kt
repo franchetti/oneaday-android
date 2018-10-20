@@ -24,7 +24,6 @@ class BootReceiver : BroadcastReceiver() {
             1 -> calendar.set(Calendar.HOUR_OF_DAY, 12)
             2 -> calendar.set(Calendar.HOUR_OF_DAY, 18)
         }
-
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
 
