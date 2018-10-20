@@ -9,24 +9,25 @@
 
     <TextView
         android:id="@+id/advice_view_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/comfortaa_light"
         android:text="@string/title_dashboard"
         android:textColor="#000"
-        android:textSize="44sp"
+        android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Close the water when you don\'t need it (for example when you wash your teeth)" />
 
-    <TextView
-        android:id="@+id/advice_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:id="@+id/advice_view_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -34,5 +35,42 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/advice_view_title" />
+        app:layout_constraintTop_toBottomOf="@+id/advice_view_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/advice_view_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/textColorLight"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/advice_view_title"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ornare odio nec diam rhoncus ornare sit amet in urna. Aenean porta mi mollis, condimentum nunc quis, congue felis. Quisque dapibus lorem sed neque fermentum viverra. Proin elementum eu quam id cursus. Sed blandit ex pharetra aliquam mattis. Proin suscipit cursus aliquam. Donec sit amet volutpat augue. Donec mauris nisl, accumsan id imperdiet in, dictum ac ex. Nam euismod, risus eget finibus aliquet, metus massa facilisis eros, a mollis ligula dolor vel justo. Praesent non placerat dolor, in aliquet est. Mauris volutpat laoreet gravida. Suspendisse potenti. Aenean gravida iaculis finibus. Maecenas. " />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/advice_view_share_description"
+        android:src="?attr/actionModeShareDrawable"
+        app:layout_constraintBottom_toTopOf="@+id/advice_view_scroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/advice_view_title" />
+
 </android.support.constraint.ConstraintLayout>
