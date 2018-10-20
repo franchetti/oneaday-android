@@ -6,4 +6,5 @@ class AdviceModel {
     var date: Int? = null
     var month: Int? = null
     var bar: Boolean? = null
+    var dayOfPath: Int? = null
 }
