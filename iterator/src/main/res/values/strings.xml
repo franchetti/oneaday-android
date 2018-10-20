@@ -9,6 +9,8 @@
     <string name="notifications_title">Let\’s help your planet!</string>
     <string name="notifications_subtitle">Your effort is important, don\'t underestimate it</string>
 
+    <string name="advice_view_share_description">Share this advice</string>
+
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_notificationsSwitch">Enable daily notifications</string>
