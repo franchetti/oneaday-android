@@ -12,7 +12,6 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import java.util.*
 
-// TODO: Use recyclerView.
 class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>): BaseAdapter() {
 
     override fun getCount(): Int {
@@ -28,6 +27,7 @@ class CustomAdapter internal constructor(private val context: Context, private v
     }
 
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
+        // TODO: Use recyclerView.
         val rootView: ConstraintLayout = (context as Activity).layoutInflater.inflate(R.layout.custom_adapter, null) as ConstraintLayout
         val adviceModel: AdviceModel = adviceList[i]
 
