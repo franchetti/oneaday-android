@@ -10,6 +10,8 @@
     <string name="notifications_subtitle">Your effort is important, don\'t underestimate it</string>
 
     <string name="advice_view_share_description">Share this advice</string>
+    <string name="advice_view_share_body">Let me recommend you this application: \nhttps://play.google.com/store/apps/details?id=gq.emiliodallatorre.oneaday.app\nthis is an app to help you reduce your carbon footprint.</string>
+    <string name="advice_view_share_select">Choose how to share this app:</string>
 
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
