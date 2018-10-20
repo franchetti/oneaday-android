@@ -1,5 +1,6 @@
 package gq.emiliodallatorre.oneaday.iterator
 
+import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import java.util.*
+import android.view.View.Y
+import android.view.View.X
+import android.widget.ScrollView
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -108,6 +113,7 @@ class DashboardFragment : Fragment() {
 
             adviceModel.title = resources.getStringArray(R.array.advicesTitle)[i]
             adviceModel.subtitle = resources.getStringArray(R.array.advicesSubtitle)[i]
+            adviceModel.dayOfPath = i
             adviceList.add(adviceModel)
         }
     }
@@ -141,7 +147,19 @@ class DashboardFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        activity!!.findViewById<ListView>(R.id.progressList).adapter = CustomAdapter(activity!!, adviceList)
+        (context as Activity).findViewById<ListView>(R.id.progressList).adapter = CustomAdapter(activity!!, adviceList)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val listView: ListView = (context as Activity).findViewById(R.id.progressList)
+        for(i in 0 until adviceList.size) {
+            if (!adviceList[i].bar!!) {
+                listView.post { listView.smoothScrollToPositionFromTop(i, 4, 1000)
+                }
+                break
+            }
+        }
     }
 
     /**
