@@ -34,15 +34,6 @@ class DashboardFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // TODO: Improve the look of dashboard.
-        object : Thread() {
-            override fun run() {
-                try {
-                    adviceList = DashboardLoader().load(context)
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                }
-            }
-        }.start()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +50,17 @@ class DashboardFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        
+        object : Thread() {
+            override fun run() {
+                try {
+                    adviceList = DashboardLoader().load(context)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }
+        }.start()
+
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
