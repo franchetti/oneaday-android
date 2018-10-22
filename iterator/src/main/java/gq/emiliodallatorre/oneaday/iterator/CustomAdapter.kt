@@ -6,13 +6,16 @@ import android.content.Intent
 import android.graphics.Paint
 import android.support.constraint.ConstraintLayout
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import java.util.*
 
-class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>): BaseAdapter() {
+class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>) : BaseAdapter() {
+    // Initialize an inflater for some cases.
+    private val inflater = LayoutInflater.from(context)
 
     override fun getCount(): Int {
         return adviceList.size
@@ -28,22 +31,32 @@ class CustomAdapter internal constructor(private val context: Context, private v
 
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
         // TODO: Use recyclerView.
-        val rootView: ConstraintLayout = (context as Activity).layoutInflater.inflate(R.layout.custom_adapter, null) as ConstraintLayout
-        val adviceModel: AdviceModel = adviceList[i]
+        val holder: ViewHolder
+        var retView: View? = view
 
-        val dashboardAdvice = (rootView.findViewById(R.id.dashboard_advice) as TextView)
-        val dashboardDate: TextView = rootView.findViewById(R.id.dashboard_date) as TextView
-        val dashboardMonth: TextView = rootView.findViewById(R.id.dashboard_month) as TextView
-
-        dashboardAdvice.text = adviceModel.title
-        dashboardDate.text = adviceModel.date.toString()
-        dashboardMonth.text = (context).resources.getStringArray(R.array.months)[adviceModel.month!!]
-
-        if(adviceModel.bar!!) {
-            dashboardAdvice.paintFlags = dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        // Retrieve the ViewHolder.
+        if (retView == null) {
+            retView = inflater.inflate(R.layout.custom_adapter, null) as ConstraintLayout
+            holder = ViewHolder(retView)
+            retView.tag = holder
+        } else {
+            retView = view
+            holder = retView!!.tag as ViewHolder
         }
 
-        rootView.setOnClickListener {
+        val adviceModel: AdviceModel = adviceList[i]
+
+        // Set text in the TextViews.
+        holder.dashboardAdvice.text = adviceModel.title
+        holder.dashboardDate.text = adviceModel.date.toString()
+        holder.dashboardMonth.text = (context).resources.getStringArray(R.array.months)[adviceModel.month!!]
+
+        // Set if the text has to be strike-through.
+        if (adviceModel.bar!!) holder.dashboardAdvice.paintFlags = holder.dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        else holder.dashboardAdvice.paintFlags = holder.dashboardAdvice.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+
+        // Set a listener for click events.
+        retView.setOnClickListener {
             val intent = Intent(context, AdviceView::class.java)
             intent.putExtra("advice", adviceModel.title)
             // TODO: Fix this horrible thing of converting int to string.
@@ -53,7 +66,9 @@ class CustomAdapter internal constructor(private val context: Context, private v
             context.startActivity(intent)
         }
 
-        Log.d(context.localClassName, adviceModel.title)
-        return rootView
+        // Log advices for debugging scopes.
+        Log.d((context as Activity).localClassName, adviceModel.title)
+
+        return retView
     }
 }

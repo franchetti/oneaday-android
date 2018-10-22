@@ -50,7 +50,7 @@ class DashboardFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        
+
         object : Thread() {
             override fun run() {
                 try {
@@ -81,14 +81,22 @@ class DashboardFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val listView: ListView = (context as Activity).findViewById(R.id.progressList)
-        for (i in 0 until adviceList.size) {
-            if (!adviceList[i].bar!!) {
-                listView.post {
-                    listView.smoothScrollToPositionFromTop(i, 4, 1000)
+        object : Thread() {
+            override fun run() {
+                try {
+                    for (i in 0 until adviceList.size) {
+                        if (!adviceList[i].bar!!) {
+                            listView.post {
+                                listView.smoothScrollToPositionFromTop(i, 4, 1000)
+                            }
+                            break
+                        }
+                    }
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
                 }
-                break
             }
-        }
+        }.start()
     }
 
     /**
