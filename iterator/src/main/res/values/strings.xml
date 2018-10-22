@@ -28,4 +28,8 @@
 
     <string name="settings_summary_vibrationTick">Uncheck to disable vibration</string>
     <string name="settings_summary_notificationsTime">Select time for notification</string>
+
+    <string name="launcher_shortcuts_todayAdvice">Daily advice</string>
+    <string name="launcher_shortcuts_todayAdviceLong">See what you can do today</string>
+    <string name="launcher_shortcuts_disabled">This shortcut is disabled</string>
 </resources>
