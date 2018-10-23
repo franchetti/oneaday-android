@@ -11,10 +11,12 @@ class DashboardLoader {
         val startDay: Int = PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
         val startMonth: Int = PreferenceManager.getDefaultSharedPreferences(context).getInt("startMonth", 1)
         val adviceList = ArrayList<AdviceModel>()
+        val advicesArray: Array<String> = context!!.resources.getStringArray(R.array.advicesTitle)
+        val advicesSubtitlesArray: Array<String> = context.resources.getStringArray(R.array.advicesSubtitle)
 
         var f = 0
         var g = 0
-        for (i in 0 until 27) {
+        for (i in 0 until advicesArray.size) {
             val adviceModel = AdviceModel()
             when (startMonth + 1) {
                 1 -> f = 31
@@ -71,11 +73,10 @@ class DashboardLoader {
                 }
             }
 
-            if (context != null) {
-                adviceModel.title = context.resources.getStringArray(R.array.advicesTitle)[i]
-                adviceModel.subtitle = context.resources.getStringArray(R.array.advicesSubtitle)[i]
-            }
-            adviceModel.dayOfPath = i
+            adviceModel.title = advicesArray[i]
+            adviceModel.subtitle = advicesSubtitlesArray[i]
+
+            adviceModel.dayOfPath = i + 1
             adviceList.add(adviceModel)
         }
         return adviceList
