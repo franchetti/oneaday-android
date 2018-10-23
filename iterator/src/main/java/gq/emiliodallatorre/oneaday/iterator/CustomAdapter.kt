@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.TextView
 import java.util.*
 
 class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>) : BaseAdapter() {
@@ -59,15 +58,14 @@ class CustomAdapter internal constructor(private val context: Context, private v
         retView.setOnClickListener {
             val intent = Intent(context, AdviceView::class.java)
             intent.putExtra("advice", adviceModel.title)
-            // TODO: Fix this horrible thing of converting int to string.
-            intent.putExtra("dayOfPath", adviceModel.dayOfPath.toString())
-            intent.putExtra("date", adviceModel.date.toString())
+            intent.putExtra("dayOfPath", adviceModel.dayOfPath)
+            intent.putExtra("date", adviceModel.date)
             intent.putExtra("month", (context).resources.getStringArray(R.array.months)[adviceModel.month!!])
             context.startActivity(intent)
         }
 
         // Log advices for debugging scopes.
-        Log.d((context as Activity).localClassName, adviceModel.title)
+        Log.d((context as Activity).localClassName, adviceModel.title + " $i ++++++++")
 
         return retView
     }
