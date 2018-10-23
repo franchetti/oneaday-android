@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 
 class AdviceView : AppCompatActivity() {
@@ -14,9 +15,10 @@ class AdviceView : AppCompatActivity() {
 
         // Inflate the textViews of the advice_view layout.
         findViewById<TextView>(R.id.advice_view_title).text = intent.getStringExtra("advice")
-        findViewById<TextView>(R.id.advice_view_body).text = resources.getStringArray(R.array.advicesBody)[Integer.parseInt(intent.getStringExtra("dayOfPath"))]
+        findViewById<TextView>(R.id.advice_view_body).text = resources.getStringArray(R.array.advicesBody)[intent.getIntExtra("dayOfPath", 14)]
         // TODO: Create advicesBody strings.
         findViewById<TextView>(R.id.advice_view_body).text = resources.getStringArray(R.array.advicesBody)[0]
+        findViewById<ProgressBar>(R.id.advice_view_progress).progress = intent.getIntExtra("dayOfPath", 14)
 
         // This is the listener of the share button.
         findViewById<ImageButton>(R.id.advice_view_share).setOnClickListener {
