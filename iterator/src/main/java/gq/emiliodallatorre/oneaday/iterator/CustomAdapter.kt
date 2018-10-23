@@ -26,7 +26,7 @@ class CustomAdapter internal constructor(private val context: Context, private v
     }
 
     override fun getItemId(i: Int): Long {
-        return getItem(i).hashCode().toLong()
+        return i.toLong()
     }
 
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
