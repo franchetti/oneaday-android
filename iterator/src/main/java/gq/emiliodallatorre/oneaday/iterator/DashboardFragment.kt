@@ -17,7 +17,6 @@ class DashboardFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // TODO: Improve the look of dashboard.
     }
 
