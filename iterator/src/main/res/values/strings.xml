@@ -13,6 +13,7 @@
     <string name="advice_view_share_body">Let me recommend you this application: \nhttps://play.google.com/store/apps/details?id=gq.emiliodallatorre.oneaday.app\nthis is an app to help you reduce your carbon footprint.</string>
     <string name="advice_view_share_select">Choose how to share this app:</string>
 
+    <!-- Here are the strings for the settings dialogs. -->
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_notificationsSwitch">Enable daily notifications</string>
@@ -29,7 +30,11 @@
     <string name="settings_summary_vibrationTick">Uncheck to disable vibration</string>
     <string name="settings_summary_notificationsTime">Select time for notification</string>
 
+    <!-- Here are the strings of the shortcuts in the launcher. -->
+    <string name="launcher_shortcuts_disabled">This shortcut is disabled</string>
     <string name="launcher_shortcuts_todayAdvice">Daily advice</string>
     <string name="launcher_shortcuts_todayAdviceLong">See what you can do today</string>
-    <string name="launcher_shortcuts_disabled">This shortcut is disabled</string>
+
+    <string name="launcher_shortcuts_settings">Settings</string>
+    <string name="launcher_shortcuts_settingsLong">Edit One a Day settings</string>
 </resources>
