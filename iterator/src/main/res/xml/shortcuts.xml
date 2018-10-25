@@ -13,7 +13,7 @@
             android:targetClass="gq.emiliodallatorre.oneaday.iterator.SettingsFragment" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
-    
+
     <shortcut
         android:shortcutId="home"
         android:enabled="true"
