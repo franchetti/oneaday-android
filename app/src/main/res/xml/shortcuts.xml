@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:shortcutShortLabel="@string/launcher_shortcuts_settings"
+        android:shortcutLongLabel="@string/launcher_shortcuts_settingsLong"
+        android:shortcutDisabledMessage="@string/launcher_shortcuts_disabled">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="gq.emiliodallatorre.oneaday.app"
+            android:targetClass="gq.emiliodallatorre.oneaday.iterator.SettingsFragment" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:shortcutShortLabel="@string/launcher_shortcuts_todayAdvice"
+        android:shortcutLongLabel="@string/launcher_shortcuts_todayAdviceLong"
+        android:shortcutDisabledMessage="@string/launcher_shortcuts_disabled">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="gq.emiliodallatorre.oneaday.app"
+            android:targetClass="gq.emiliodallatorre.oneaday.iterator.MainActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
