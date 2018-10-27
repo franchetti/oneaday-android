@@ -14,7 +14,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.preference.PreferenceManager
 
-class NotificationReceiver : BroadcastReceiver() {
+class NotificationReceiver: BroadcastReceiver() {
 
     // TODO: Fix notification icon, that is actually a circle.
     override fun onReceive(context: Context, intent: Intent) {
@@ -28,6 +28,7 @@ class NotificationReceiver : BroadcastReceiver() {
         createNotificationChannel(context)
 
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
+                .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher))
                 .setColor(ResourcesCompat.getColor(context.resources, R.color.colorPrimaryDark, null))
