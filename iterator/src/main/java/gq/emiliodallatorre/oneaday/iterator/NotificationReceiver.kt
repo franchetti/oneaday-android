@@ -13,32 +13,40 @@ import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.preference.PreferenceManager
+import java.util.*
 
 class NotificationReceiver: BroadcastReceiver() {
-
-    // TODO: Fix notification icon, that is actually a circle.
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         val action = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
 
+
+        System.out.println(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false).toString() + " +++++++++++")
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, action, 0)
 
         createNotificationChannel(context)
 
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
-                .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_launcher))
                 .setColor(ResourcesCompat.getColor(context.resources, R.color.colorPrimaryDark, null))
-                .setContentTitle(context.getString(R.string.notifications_title))
-                .setContentText(context.getString(R.string.notifications_subtitle))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
-        val notificationManager = NotificationManagerCompat.from(context)
 
-        notificationManager.notify(1, mBuilder.build())
+        if(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false)) {
+            mBuilder.setContentTitle(context.resources.getStringArray(R.array.advicesTitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)])
+            mBuilder.setOngoing(true)
+        } else {
+            mBuilder.setAutoCancel(true)
+            mBuilder.setContentTitle(context.getString(R.string.notifications_title))
+            mBuilder.setContentText(context.getString(R.string.notifications_subtitle))
+        }
+
+        // Actually show the notification.
+        val notificationManager = NotificationManagerCompat.from(context)
+        notificationManager.notify(1201, mBuilder.build())
     }
 
     // Create a channel for the notifications, required since Android Oreo.

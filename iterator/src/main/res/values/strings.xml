@@ -19,6 +19,7 @@
     <string name="settings_general">General</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_notificationsSwitch">Enable daily notifications</string>
+    <string name="settings_persistentNotification">Persistent notifications</string>
     <string name="settings_vibrationTick">Enable aptic feedback</string>
     <string name="settings_notificationsTime">Notification time</string>
     <string name="settings_about">About</string>
@@ -31,6 +32,7 @@
 
     <string name="settings_summary_vibrationTick">Uncheck to disable vibration</string>
     <string name="settings_summary_notificationsTime">Select time for notification</string>
+    <string name="settings_summary_persistentNotification">Make the notification persistent during the day</string>
 
     <!-- Here are the strings of the shortcuts in the launcher. -->
     <string name="launcher_shortcuts_disabled">This shortcut is disabled</string>

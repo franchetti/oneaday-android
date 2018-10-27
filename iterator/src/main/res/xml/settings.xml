@@ -26,6 +26,12 @@
             android:defaultValue="true"/>
 
         <CheckBoxPreference
+            android:key="persistentNotification"
+            android:defaultValue="false"
+            android:title="@string/settings_persistentNotification"
+            android:summary="@string/settings_summary_persistentNotification"/>
+
+        <CheckBoxPreference
             android:key="apticFeedback"
             android:title="@string/settings_vibrationTick"
             android:summary="@string/settings_summary_vibrationTick"
