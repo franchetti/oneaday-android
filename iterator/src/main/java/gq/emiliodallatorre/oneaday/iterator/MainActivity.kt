@@ -13,8 +13,6 @@ import android.support.v7.preference.PreferenceManager
 import android.widget.Toast
 import java.util.*
 
-val BROADCAST = "gq.emiliodallatorre.oneaday.app.android.action.broadcast"
-
 class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -57,7 +55,7 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
             editor.putBoolean("firstStart", false)
             editor.apply()
 
-            val pendingIntent = PendingIntent.getBroadcast(this, 1201, Intent(BROADCAST), PendingIntent.FLAG_UPDATE_CURRENT)
+            val pendingIntent = PendingIntent.getBroadcast(this, 1201, Intent(this, NotificationReceiver::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
             val alarmManager = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
             val calendar = Calendar.getInstance()

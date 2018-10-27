@@ -28,16 +28,14 @@
         </activity>
 
         <receiver
+            android:process=":remote"
             android:name=".NotificationReceiver"
-            android:enabled="true"
-            android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
                 <action android:name="gq.emiliodallatorre.oneaday.app.android.action.broadcast" />
             </intent-filter>
         </receiver>
         <receiver
-            android:process=":remote"
             android:name=".BootReceiver"
             android:enabled="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">

@@ -8,12 +8,12 @@ import android.content.Intent
 import android.support.v7.preference.PreferenceManager
 import java.util.*
 
-class BootReceiver : BroadcastReceiver() {
+class BootReceiver: BroadcastReceiver() {
 
     // TODO: Fix security issue.
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving a BOOT_COMPLETED broadcast.
-        val pendingIntent = PendingIntent.getBroadcast(context, 1201, Intent(BROADCAST), PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getBroadcast(context, 1201, Intent(context, NotificationReceiver::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         val calendar = Calendar.getInstance()
