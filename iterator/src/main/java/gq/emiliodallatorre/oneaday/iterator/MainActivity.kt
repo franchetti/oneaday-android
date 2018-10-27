@@ -6,9 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
+import android.widget.Toast
 import java.util.*
 
 val BROADCAST = "gq.emiliodallatorre.oneaday.app.android.action.broadcast"
@@ -85,5 +87,18 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
 
     override fun onFragmentInteraction(uri: Uri) {
         // TODO: To be understood.
+    }
+
+    // This handles the back button, to prevent the user from seeing the blank fragment.
+    private var doubleBackToExitPressedOnce: Boolean = true
+    override fun onBackPressed() {
+        if (!doubleBackToExitPressedOnce) {
+            finishAndRemoveTask()
+        }
+
+        this.doubleBackToExitPressedOnce = false
+        Toast.makeText(this, getString(R.string.press_exit), Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed({ doubleBackToExitPressedOnce = true }, 1000)
     }
 }
