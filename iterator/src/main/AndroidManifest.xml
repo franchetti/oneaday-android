@@ -53,6 +53,12 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity
+            android:name=".SettingsShortcut"
+            android:label="@string/title_activity_advice_view"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>

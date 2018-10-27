@@ -35,6 +35,7 @@ class SettingsShortcut: AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        finishAndRemoveTask()
         startActivity(Intent(this, MainActivity::class.java))
     }
 }
