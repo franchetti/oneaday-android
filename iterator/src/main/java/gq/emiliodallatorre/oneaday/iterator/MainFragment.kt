@@ -35,11 +35,11 @@ class MainFragment: Fragment() {
         super.onStart()
         // TODO: Setup things for lastDay of path.
         val donutProgress: DonutProgress = (context as Activity).findViewById(R.id.progressBar) as DonutProgress
-        val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1) + 1
+        val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
         ((context as Activity).findViewById(R.id.advice_title) as TextView).text = resources.getStringArray(R.array.advicesTitle)[dayOfPath]
         ((context as Activity).findViewById(R.id.advice_subtitle) as TextView).text = resources.getStringArray(R.array.advicesSubtitle)[dayOfPath]
-        donutProgress.text = getString(R.string.main_day) + " $dayOfPath " + getString(R.string.main_of) + " 28"
-        donutProgress.progress = dayOfPath.toFloat()
+        donutProgress.text = getString(R.string.main_day) + " " + (dayOfPath + 1) + " " + getString(R.string.main_of) + " 28"
+        donutProgress.progress = (dayOfPath + 1).toFloat()
         donutProgress.finishedStrokeWidth = (100).toFloat()
         donutProgress.unfinishedStrokeWidth = (20).toFloat()
     }
