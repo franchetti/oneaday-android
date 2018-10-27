@@ -11,38 +11,45 @@ import android.support.v7.preference.PreferenceManager
 import java.util.*
 
 class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
+    // Save an instance of PreferenceManager, universal for this class.
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        // Initialize the sharedPreferences var.
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
         // Load the preferences from an XML resource.
         setPreferencesFromResource(R.xml.settings, rootKey)
-        findPreference("apticFeedback").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
-        findPreference("notificationsTime").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
+        findPreference("apticFeedback").isEnabled = sharedPreferences.getBoolean("notificationsSwitch", true)
+        findPreference("notificationsTime").isEnabled = sharedPreferences.getBoolean("notificationsSwitch", true)
         findPreference("firstStart").isVisible = false
-        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        findPreference("apticFeedback").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
-        findPreference("notificationsTime").isEnabled = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)
-        updateAlarm()
-        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
+        findPreference("apticFeedback").isEnabled = sharedPreferences.getBoolean("notificationsSwitch", true)
+        findPreference("notificationsTime").isEnabled = sharedPreferences.getBoolean("notificationsSwitch", true)
+        updateAlarm(Integer.parseInt(sharedPreferences.getString("notificationsTime", "0")))
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this)
     }
 
-    private fun updateAlarm() {
-        val pendingIntent = PendingIntent.getBroadcast(context, 1201, Intent(BROADCAST), PendingIntent.FLAG_UPDATE_CURRENT)
+    private fun updateAlarm(notificationsTime: Int) {
+        val pendingIntent = PendingIntent.getBroadcast(context, 1201, Intent(context, NotificationReceiver::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
         val alarmManager = context!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
         alarmManager.cancel(pendingIntent)
-        if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("notificationsSwitch", true)) {
+
+        if(sharedPreferences.getBoolean("notificationsSwitch", true)) {
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
 
-            when (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(context).getString("notificationsTime", "0")!!)) {
+            when (notificationsTime) {
                 0 -> calendar.set(Calendar.HOUR_OF_DAY, 9)
                 1 -> calendar.set(Calendar.HOUR_OF_DAY, 12)
                 2 -> calendar.set(Calendar.HOUR_OF_DAY, 18)
             }
 
-            calendar.set(Calendar.MINUTE, 0)
+            calendar.set(Calendar.MINUTE, 36)
             calendar.set(Calendar.SECOND, 0)
 
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, (1000 * 60 * 60 * 24).toLong(), pendingIntent)
