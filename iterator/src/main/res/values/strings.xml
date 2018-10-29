@@ -34,11 +34,4 @@
     <string name="settings_summary_notificationsTime">Select time for notification</string>
     <string name="settings_summary_persistentNotification">Make the notification persistent during the day</string>
 
-    <!-- Here are the strings of the shortcuts in the launcher. -->
-    <string name="launcher_shortcuts_disabled">This shortcut is disabled</string>
-    <string name="launcher_shortcuts_todayAdvice">Daily advice</string>
-    <string name="launcher_shortcuts_todayAdviceLong">See what you can do today</string>
-
-    <string name="launcher_shortcuts_settings">Settings</string>
-    <string name="launcher_shortcuts_settingsLong">Edit One a Day settings</string>
 </resources>
