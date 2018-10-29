@@ -1,1 +1,1 @@
-include ':iterator', ':app', ':base', ':instantapp'
+include ':iterator', ':app', ':base'
