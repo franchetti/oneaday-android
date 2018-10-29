@@ -21,8 +21,6 @@ class NotificationReceiver : BroadcastReceiver() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
 
-
-        System.out.println(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false).toString() + " +++++++++++")
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, action, 0)
 
         createNotificationChannel(context)
@@ -34,14 +32,11 @@ class NotificationReceiver : BroadcastReceiver() {
                 .setContentIntent(pendingIntent)
 
         if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false)) {
-            val adviceTitles = context.resources.getStringArray(R.array.advicesTitle)
-            val adviceSubtitles = context.resources.getStringArray(R.array.advicesSubtitle)
-            val adviceBodies = context.resources.getStringArray(R.array.advicesBody)
             val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
-            mBuilder.setContentTitle(adviceTitles[dayOfPath])
-                    .setContentText(adviceSubtitles[dayOfPath])
-                    .setStyle(NotificationCompat.BigTextStyle()
-                            .bigText(adviceBodies[dayOfPath]))
+
+            mBuilder.setContentText(context.resources.getStringArray(R.array.advicesSubtitle)[dayOfPath])
+                    .setContentTitle(context.resources.getStringArray(R.array.advicesTitle)[dayOfPath])
+                    .setStyle(NotificationCompat.BigTextStyle().bigText(context.resources.getStringArray(R.array.advicesBody)[dayOfPath]))
                     .setOngoing(true)
         } else {
             mBuilder.setAutoCancel(true)
@@ -50,8 +45,7 @@ class NotificationReceiver : BroadcastReceiver() {
         }
 
         // Actually show the notification.
-        val notificationManager = NotificationManagerCompat.from(context)
-        notificationManager.notify(1201, mBuilder.build())
+        NotificationManagerCompat.from(context).notify(1201, mBuilder.build())
     }
 
     // Create a channel for the notifications, required since Android Oreo.
