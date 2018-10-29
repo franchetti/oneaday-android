@@ -6,7 +6,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.support.v7.preference.PreferenceManager
-import android.widget.Toast
 import java.util.*
 
 class BootReceiver: BroadcastReceiver() {
@@ -33,8 +32,6 @@ class BootReceiver: BroadcastReceiver() {
             } else {
                 context.sendBroadcast(Intent(context, NotificationReceiver::class.java))
             }
-            System.out.println("BOOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTT")
-            Toast.makeText(context, "BOOOOOOOOOOOTTTTT", Toast.LENGTH_SHORT).show()
         }
     }
 }
