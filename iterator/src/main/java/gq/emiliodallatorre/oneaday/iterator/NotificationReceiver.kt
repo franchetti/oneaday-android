@@ -14,7 +14,7 @@ import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.preference.PreferenceManager
 import java.util.*
 
-class NotificationReceiver: BroadcastReceiver() {
+class NotificationReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         val action = Intent(context, MainActivity::class.java).apply {
@@ -33,9 +33,16 @@ class NotificationReceiver: BroadcastReceiver() {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
 
-        if(PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false)) {
-            mBuilder.setContentTitle(context.resources.getStringArray(R.array.advicesTitle)[Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)])
-            mBuilder.setOngoing(true)
+        if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false)) {
+            val adviceTitles = context.resources.getStringArray(R.array.advicesTitle)
+            val adviceSubtitles = context.resources.getStringArray(R.array.advicesSubtitle)
+            val adviceBodies = context.resources.getStringArray(R.array.advicesBody)
+            val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
+            mBuilder.setContentTitle(adviceTitles[dayOfPath])
+                    .setContentText(adviceSubtitles[dayOfPath])
+                    .setStyle(NotificationCompat.BigTextStyle()
+                            .bigText(adviceBodies[dayOfPath]))
+                    .setOngoing(true)
         } else {
             mBuilder.setAutoCancel(true)
             mBuilder.setContentTitle(context.getString(R.string.notifications_title))
