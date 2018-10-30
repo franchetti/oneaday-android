@@ -14,21 +14,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.lzyzsd.circleprogress.DonutProgress
+        <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:donut_circle_starting_degree="270"
-            app:donut_max="28"
-            app:donut_text_color="@color/colorAccent"
-            app:donut_text_size="34sp"
+            android:layout_marginBottom="8dp"
+            app:donut_finished_stroke_width="30dp"
+            app:donut_text_color="#0000"
+            app:donut_finished_color="@color/colorPrimary"
+            app:donut_unfinished_stroke_width="6dp"
             app:layout_constraintBottom_toTopOf="@+id/advice_title"
-            app:layout_constraintDimensionRatio="w,1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:donut_finished_color="@color/colorPrimary"/>
+            app:layout_constraintDimensionRatio="1,1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="@+id/progressBar"
+            app:layout_constraintTop_toTopOf="@+id/progressBar"
+            tools:text="day 14 of 28"/>
 
         <TextView
             android:id="@+id/advice_title"
