@@ -91,7 +91,13 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
     private var doubleBackToExitPressedOnce: Boolean = true
     override fun onBackPressed() {
         if (!doubleBackToExitPressedOnce) {
-            finishAndRemoveTask()
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                // Only if on Lollipop or newer versions.
+                finishAndRemoveTask()
+            } else {
+                // Only if on a version older than Lollipop.
+                finishAffinity()
+            }
         }
 
         this.doubleBackToExitPressedOnce = false
