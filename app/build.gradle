@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "gq.emiliodallatorre.oneaday.app"
-        minSdkVersion 21
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 9
         versionName "0.9 - 29 ott 2018"
