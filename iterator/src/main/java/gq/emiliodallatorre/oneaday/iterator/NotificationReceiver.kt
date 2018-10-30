@@ -17,19 +17,18 @@ import java.util.*
 class NotificationReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-        val action = Intent(context, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, action, 0)
-
         createNotificationChannel(context)
 
         val mBuilder = NotificationCompat.Builder(context, "oneADay-notifications")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setColor(ResourcesCompat.getColor(context.resources, R.color.colorPrimaryDark, null))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
+                .setContentIntent(
+                        PendingIntent.getActivity(context,
+                                0,
+                                Intent(context,
+                                        MainActivity::class.java).apply {flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK},
+                                0))
 
         if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("persistentNotification", false)) {
             val dayOfPath: Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - PreferenceManager.getDefaultSharedPreferences(context).getInt("startDay", 1)
