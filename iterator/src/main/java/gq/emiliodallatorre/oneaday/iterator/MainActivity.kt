@@ -8,34 +8,45 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
 import android.widget.Toast
 import java.util.*
 
 class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {
+    private val fragmentManager = supportFragmentManager
+
+    private val mainFragment = MainFragment()
+    private val dashboardFragment = DashboardFragment()
+    private val settingsFragment = SettingsFragment()
+    private var selectedFragment: Any = mainFragment
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
 
         when (item.itemId) {
             R.id.navigation_home -> {
-                fragmentTransaction.replace(R.id.fragment, MainFragment())
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                fragmentManager.beginTransaction()
+                        .hide(selectedFragment as Fragment)
+                        .show(mainFragment)
+                        .commit()
+                selectedFragment = mainFragment
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                fragmentTransaction.replace(R.id.fragment, DashboardFragment())
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                fragmentManager.beginTransaction()
+                        .hide(selectedFragment as Fragment)
+                        .show(dashboardFragment)
+                        .commit()
+                selectedFragment = dashboardFragment
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                fragmentTransaction.replace(R.id.fragment, SettingsFragment())
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                fragmentManager.beginTransaction()
+                        .hide(selectedFragment as Fragment)
+                        .show(settingsFragment)
+                        .commit()
+                selectedFragment = settingsFragment
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -76,7 +87,16 @@ class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListe
         // Load main fragment at start.
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment, MainFragment())
+
+        fragmentTransaction.add(R.id.fragment, mainFragment)
+        fragmentTransaction.add(R.id.fragment, dashboardFragment)
+        fragmentTransaction.add(R.id.fragment, settingsFragment)
+
+        fragmentTransaction.hide(dashboardFragment)
+        fragmentTransaction.hide(settingsFragment)
+
+        fragmentTransaction.show(mainFragment)
+
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
 
