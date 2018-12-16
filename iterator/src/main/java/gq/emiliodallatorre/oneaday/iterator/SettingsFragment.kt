@@ -16,6 +16,11 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     // Save an instance of PreferenceManager, universal for this class.
     private lateinit var sharedPreferences: SharedPreferences
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mCont
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         // Initialize the sharedPreferences var.
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -41,7 +46,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
 
         // In this case, notifications are enabled and the notifications is not persistent.
         if (sharedPreferences.getBoolean("notificationsSwitch", true) && !sharedPreferences.getBoolean("persistentNotification", false)) {
-            NotificationManagerCompat.from(context!!).cancel(1201)
+            NotificationManagerCompat.from(context).cancel(1201)
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
