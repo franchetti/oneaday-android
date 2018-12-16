@@ -10,7 +10,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="gq.emiliodallatorre.oneaday.app"
-            android:targetClass="gq.emiliodallatorre.oneaday.iterator.SettingsShortcut" />
+            android:targetClass="gq.emiliodallatorre.oneaday.iterator.settings.SettingsShortcut" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 

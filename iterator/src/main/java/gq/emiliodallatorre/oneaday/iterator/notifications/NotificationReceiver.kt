@@ -1,4 +1,4 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.notifications
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,6 +12,8 @@ import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.preference.PreferenceManager
+import gq.emiliodallatorre.oneaday.iterator.MainActivity
+import gq.emiliodallatorre.oneaday.iterator.R
 import java.util.*
 
 class NotificationReceiver : BroadcastReceiver() {

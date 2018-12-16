@@ -12,6 +12,10 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceManager
 import android.widget.Toast
+import gq.emiliodallatorre.oneaday.iterator.experience.DashboardFragment
+import gq.emiliodallatorre.oneaday.iterator.experience.MainFragment
+import gq.emiliodallatorre.oneaday.iterator.notifications.NotificationReceiver
+import gq.emiliodallatorre.oneaday.iterator.settings.SettingsFragment
 import java.util.*
 
 class MainActivity: AppCompatActivity(), MainFragment.OnFragmentInteractionListener, DashboardFragment.OnFragmentInteractionListener {

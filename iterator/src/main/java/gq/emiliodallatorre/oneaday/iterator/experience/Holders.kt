@@ -1,7 +1,8 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.experience
 
 import android.view.View
 import android.widget.TextView
+import gq.emiliodallatorre.oneaday.iterator.R
 
 /**
  * This is the class which can represent an entire advice, complete of all the data needed to handle it.

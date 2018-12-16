@@ -1,4 +1,4 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.settings
 
 import android.app.Activity
 import android.app.AlarmManager
@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.support.v7.preference.PreferenceManager
+import gq.emiliodallatorre.oneaday.iterator.R
+import gq.emiliodallatorre.oneaday.iterator.notifications.NotificationReceiver
 import java.util.*
 
 class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -18,7 +20,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     private var mContext: Context? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        // Initialize the sharedPreferences var and the mContext.
+        // Initialize the 'sharedPreferences' and the 'mContext' var.
         mContext = context
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
 

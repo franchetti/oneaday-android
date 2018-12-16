@@ -1,7 +1,8 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.experience
 
 import android.content.Context
 import android.support.v7.preference.PreferenceManager
+import gq.emiliodallatorre.oneaday.iterator.R
 import java.util.*
 
 class DashboardLoader {

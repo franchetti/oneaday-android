@@ -1,4 +1,4 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.settings
 
 import android.app.Activity
 import android.content.Intent
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.widget.FrameLayout
+import gq.emiliodallatorre.oneaday.iterator.MainActivity
+import gq.emiliodallatorre.oneaday.iterator.R
 
 class SettingsShortcut: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

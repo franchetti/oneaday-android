@@ -1,4 +1,4 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.notifications
 
 import android.app.AlarmManager
 import android.app.PendingIntent

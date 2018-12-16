@@ -31,14 +31,14 @@
 
         <receiver
             android:process=":remote"
-            android:name=".NotificationReceiver"
+            android:name=".notifications.NotificationReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="gq.emiliodallatorre.oneaday.app.android.action.notify" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".BootReceiver"
+        <receiver android:name=".notifications.BootReceiver"
             android:process=":remote"
             android:enabled="true"
             android:exported="true"
@@ -51,13 +51,13 @@
         </receiver>
 
         <activity
-            android:name=".AdviceView"
+            android:name=".experience.AdviceView"
             android:label="@string/title_activity_advice_view"
             android:theme="@style/AppTheme">
 
         </activity>
         <activity
-            android:name=".SettingsShortcut"
+            android:name=".settings.SettingsShortcut"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
 

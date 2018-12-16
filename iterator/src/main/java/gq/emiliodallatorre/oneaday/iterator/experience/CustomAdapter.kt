@@ -1,4 +1,4 @@
-package gq.emiliodallatorre.oneaday.iterator
+package gq.emiliodallatorre.oneaday.iterator.experience
 
 import android.app.Activity
 import android.content.Context
@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import gq.emiliodallatorre.oneaday.iterator.R
 import java.util.*
 
 class CustomAdapter internal constructor(private val context: Context, private val adviceList: ArrayList<AdviceModel>) : BaseAdapter() {
