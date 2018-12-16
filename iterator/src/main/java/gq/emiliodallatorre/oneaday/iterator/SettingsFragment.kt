@@ -15,15 +15,12 @@ import java.util.*
 class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     // Save an instance of PreferenceManager, universal for this class.
     private lateinit var sharedPreferences: SharedPreferences
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mCont
-    }
+    private var mContext: Context? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        // Initialize the sharedPreferences var.
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+        // Initialize the sharedPreferences var and the mContext.
+        mContext = context
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
 
         // Load the preferences from an XML resource.
         setPreferencesFromResource(R.xml.settings, rootKey)
@@ -39,14 +36,14 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     }
 
     private fun updateAlarm() {
-        val pendingIntent = PendingIntent.getBroadcast(context, 1201, Intent(context, NotificationReceiver::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
-        val alarmManager = (context as Activity).getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val pendingIntent = PendingIntent.getBroadcast(mContext, 1201, Intent(mContext, NotificationReceiver::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
+        val alarmManager = (mContext as Activity).getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         alarmManager.cancel(pendingIntent)
 
         // In this case, notifications are enabled and the notifications is not persistent.
         if (sharedPreferences.getBoolean("notificationsSwitch", true) && !sharedPreferences.getBoolean("persistentNotification", false)) {
-            NotificationManagerCompat.from(context).cancel(1201)
+            NotificationManagerCompat.from(mContext as Activity).cancel(1201)
 
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = System.currentTimeMillis()
@@ -65,12 +62,12 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
 
         // In this case, notifications are enabled, and the notification is persistent.
         else if (sharedPreferences.getBoolean("notificationsSwitch", true) && sharedPreferences.getBoolean("persistentNotification", false)) {
-            (context as Activity).sendBroadcast(Intent(context, NotificationReceiver::class.java))
+            (mContext as Activity).sendBroadcast(Intent(mContext, NotificationReceiver::class.java))
         }
 
         // In this case, either notificationsSwitch and persistentNotification are false.
         else if (!sharedPreferences.getBoolean("notificationsSwitch", true) || !sharedPreferences.getBoolean("persistentNotification", false)) {
-            NotificationManagerCompat.from(context!!).cancel(1201)
+            NotificationManagerCompat.from(mContext!!).cancel(1201)
         }
     }
 
