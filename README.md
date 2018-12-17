@@ -1,4 +1,4 @@
-# oneaday-android [![Build Status](https://travis-ci.org/franchetti/oneaday-android.svg?branch=master)](https://travis-ci.org/franchetti/oneaday-android)
+# oneaday-android [![Build Status](https://travis-ci.org/franchetti/oneaday-android.svg?branch=testing)](https://travis-ci.org/franchetti/oneaday-android)
 
 With this app, you will receive a lot of useful advices to reduce your portion of pollution created living on earth.
 This app has been realized for the project "Move 5.0 - Let's change together".
