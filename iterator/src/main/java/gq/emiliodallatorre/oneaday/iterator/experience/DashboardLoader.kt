@@ -19,6 +19,8 @@ class DashboardLoader {
         var g = 0
         for (i in 0 until advicesArray.size) {
             val adviceModel = AdviceModel()
+
+            // The value f represent the number of days in the startMonth.
             when (startMonth + 1) {
                 1 -> f = 31
                 2 -> f = 28
@@ -33,6 +35,8 @@ class DashboardLoader {
                 11 -> f = 30
                 12 -> f = 31
             }
+
+            // The value f represent the number of days in the following month.
             when (currentMonth + 1) {
                 1 -> g = 31
                 2 -> g = 28
@@ -48,6 +52,7 @@ class DashboardLoader {
                 12 -> g = 31
             }
 
+            // This is if we are in the month following the startMonth.
             if (startMonth < currentMonth) {
                 if ((startDay + i) <= f) {
                     adviceModel.date = (startDay + i)
@@ -61,6 +66,7 @@ class DashboardLoader {
                 }
             }
 
+            // This is if we are in the month we started.
             if (startMonth == currentMonth) {
                 if ((startDay + i) <= g) {
                     adviceModel.date = (startDay + i)
@@ -73,6 +79,9 @@ class DashboardLoader {
                     adviceModel.bar = false
                 }
             }
+
+            // If it's the ending of the year, go to january.
+            if(adviceModel.month == 12) adviceModel.month = 0
 
             adviceModel.title = advicesArray[i]
             adviceModel.subtitle = advicesSubtitlesArray[i]
