@@ -2,13 +2,17 @@ package gq.emiliodallatorre.oneaday.iterator.experience
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.R.id.scrollView
 import android.support.v7.app.AppCompatActivity
+import android.view.MotionEvent
 import android.widget.ImageButton
 import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import gq.emiliodallatorre.oneaday.iterator.R
 
 class AdviceView : AppCompatActivity() {
+    lateinit var scrollView: ScrollView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +35,14 @@ class AdviceView : AppCompatActivity() {
             i.putExtra(Intent.EXTRA_TEXT, getString(R.string.advice_view_share_body))
             startActivity(Intent.createChooser(i, getString(R.string.advice_view_share_select)))
         }
+
+        // TODO: Add scroll listener.
+
+        /**
+        scrollView = findViewById(R.id.advice_view_scroll)
+
+        scrollView.setOnScrollChangeListener {
+
+        } */
     }
 }
