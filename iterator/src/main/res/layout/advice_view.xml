@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Close the water when you don\'t need it (for example when you wash your teeth)" />
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/advice_view_scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/advice_view_title"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ornare odio nec diam rhoncus ornare sit amet in urna. Aenean porta mi mollis, condimentum nunc quis, congue felis. Quisque dapibus lorem sed neque fermentum viverra. Proin elementum eu quam id cursus. Sed blandit ex pharetra aliquam mattis. Proin suscipit cursus aliquam. Donec sit amet volutpat augue. Donec mauris nisl, accumsan id imperdiet in, dictum ac ex. Nam euismod, risus eget finibus aliquet, metus massa facilisis eros, a mollis ligula dolor vel justo. Praesent non placerat dolor, in aliquet est. Mauris volutpat laoreet gravida. Suspendisse potenti. Aenean gravida iaculis finibus. Maecenas. " />
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <ImageButton
         android:id="@+id/advice_view_share"

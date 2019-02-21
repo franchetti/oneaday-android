@@ -1,18 +1,21 @@
 package gq.emiliodallatorre.oneaday.iterator.experience
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.design.R.id.scrollView
+import android.support.v4.widget.NestedScrollView
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.ScrollView
 import android.widget.TextView
+import gq.emiliodallatorre.oneaday.iterator.BuildConfig
 import gq.emiliodallatorre.oneaday.iterator.R
 
 class AdviceView : AppCompatActivity() {
-    lateinit var scrollView: ScrollView
+    lateinit var scrollView: NestedScrollView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,12 +40,9 @@ class AdviceView : AppCompatActivity() {
         }
 
         // TODO: Add scroll listener.
-
-        /**
-        scrollView = findViewById(R.id.advice_view_scroll)
-
-        scrollView.setOnScrollChangeListener {
-
+        /* if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            scrollView = findViewById(R.id.advice_view_scroll)
+            scrollView.
         } */
     }
 }

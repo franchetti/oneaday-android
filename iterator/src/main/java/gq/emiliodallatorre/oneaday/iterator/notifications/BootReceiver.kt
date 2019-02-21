@@ -25,7 +25,7 @@ class BootReceiver: BroadcastReceiver() {
                     1 -> calendar.set(Calendar.HOUR_OF_DAY, 15)
                     2 -> calendar.set(Calendar.HOUR_OF_DAY, 18)
                 }
-                calendar.set(Calendar.MINUTE, 37)
+                calendar.set(Calendar.MINUTE, 0)
                 calendar.set(Calendar.SECOND, 0)
 
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, (1000 * 60 * 60 * 24).toLong(), pendingIntent)
