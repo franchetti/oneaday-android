@@ -5,9 +5,9 @@
     android:id="@+id/fragment_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp"
+    android:layout_marginBottom="@dimen/_16sdp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    android:layout_marginStart="@dimen/_16sdp"
     tools:context=".experience.MainFragment">
 
     <android.support.constraint.ConstraintLayout
@@ -16,59 +16,63 @@
 
         <com.bikomobile.donutprogress.DonutProgress
             android:id="@+id/progressBar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            app:donut_finished_color="@color/colorPrimary"
             app:donut_finished_stroke_width="30dp"
             app:donut_text_color="#0000"
-            app:donut_finished_color="@color/colorPrimary"
             app:donut_unfinished_stroke_width="6dp"
             app:layout_constraintBottom_toTopOf="@+id/advice_title"
             app:layout_constraintDimensionRatio="1,1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/progressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
             android:textColor="@color/colorAccent"
-            android:textSize="34sp"
+            android:textSize="@dimen/_34ssp"
             app:layout_constraintBottom_toBottomOf="@+id/progressBar"
             app:layout_constraintEnd_toEndOf="@+id/progressBar"
             app:layout_constraintStart_toStartOf="@+id/progressBar"
             app:layout_constraintTop_toTopOf="@+id/progressBar"
-            tools:text="day 14 of 28"/>
+            tools:text="day 14 of 28" />
 
         <TextView
             android:id="@+id/advice_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/comfortaa_light"
-            android:paddingEnd="32dp"
-            android:paddingStart="32dp"
+            android:paddingStart="@dimen/_32sdp"
+            android:paddingEnd="@dimen/_32sdp"
             android:textAlignment="center"
-
             android:textColor="#000"
-            android:textSize="26sp"
+            android:textSize="@dimen/_26ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/advice_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Don\'t leave the stand-by mode on in your electronic devices" />
 
         <TextView
             android:id="@+id/advice_subtitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:progressDrawable="@drawable/circular"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="@dimen/_14ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/advice_title"
             app:layout_constraintStart_toStartOf="parent"
-            android:progressDrawable="@drawable/circular"/>
+            tools:text="Phantom load is 10% of the energy use in US" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
