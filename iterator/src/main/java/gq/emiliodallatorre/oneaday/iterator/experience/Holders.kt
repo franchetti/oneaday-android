@@ -12,13 +12,12 @@ import gq.emiliodallatorre.oneaday.iterator.R
  * @return null if the variable is not initialized.
  */
 class AdviceModel {
-    // TODO: Implement a way to achieve this w/o nullable values.
-    var title: String? = null
-    var subtitle: String? = null
-    var date: Int? = null
-    var month: Int? = null
-    var bar: Boolean? = null
-    var dayOfPath: Int? = null
+    lateinit var title: String
+    lateinit var subtitle: String
+    var date: Int = 1
+    var month: Int = 1
+    var bar: Boolean = true
+    var dayOfPath: Int = 1
 }
 
 /**
