@@ -4,15 +4,26 @@ import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.support.v4.app.Fragment
 import android.support.v7.preference.PreferenceManager
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.bikomobile.donutprogress.DonutProgress
 import gq.emiliodallatorre.oneaday.iterator.R
+import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.w3c.dom.Element
+import java.io.BufferedInputStream
+import java.lang.StringBuilder
+import java.net.URL
 import java.util.*
+import javax.xml.parsers.DocumentBuilderFactory
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,6 +56,21 @@ class MainFragment: Fragment() {
         val progressText: String = getString(R.string.main_day) + " " + (dayOfPath + 1) + " " + getString(R.string.main_of) + " 28"
         ((context as Activity).findViewById<TextView>(R.id.progressText)).text = progressText
 
+        newsFeed.isSelected = true
+        GlobalScope.launch {
+            Looper.prepare()
+            try {
+                val s: String = parseFeed()
+                (context as Activity).runOnUiThread {
+                    newsFeed.text = s
+                    newsFeed.isAllCaps = true
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                newsFeed.text = getString(R.string.comm_error)
+            }
+        }
+
         object : Thread() {
             override fun run() {
                 donutProgress.setProgressWithAnimation((dayOfPath * 10), 10)
@@ -54,7 +80,22 @@ class MainFragment: Fragment() {
             // Here you can do something on the exact moment the animation finish.
             // TODO: Do something.
         }, (dayOfPath * 10 * 10).toLong())
+    }
 
+    private fun parseFeed(): String {
+        val rssLink = "https://climatenewsnetwork.net/feed"
+        val toBeParsed = 5
+        val result = StringBuilder()
+        val itemList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(BufferedInputStream(URL(rssLink).openConnection().inputStream)).getElementsByTagName("item")
+
+        for (i in 0 until toBeParsed) {
+            // Get element of RSS stream and append it to result.
+            val element = itemList.item(i) as Element
+            result.append(element.getElementsByTagName("title").item(0).firstChild.nodeValue)
+            if(i != toBeParsed) result.append("  -  ")
+        }
+
+        return result.toString()
     }
 
     /**
