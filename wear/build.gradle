@@ -30,4 +30,13 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:wear:28.0.0'
     compileOnly 'com.google.android.wearable:wearable:2.4.0'
+
+    // Add the donut-like progress bar.
+    implementation 'com.bikomobile:donutprogress:1.2.0'
+
+    // Add intuitive DPI management.
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
 }
