@@ -15,7 +15,7 @@ class MainActivity : WearableActivity() {
         setContentView(R.layout.activity_main)
 
         // Enables Always-on
-        setAmbientEnabled()
+        // setAmbientEnabled()
     }
 
     override fun onStart() {
