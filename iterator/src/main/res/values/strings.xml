@@ -34,4 +34,6 @@
     <string name="settings_summary_notificationsTime">Select time for notification</string>
     <string name="settings_summary_persistentNotification">Make the notification persistent during the day</string>
 
+    <string name="comm_error">Cannot parse news in this moment, retry</string>
+    <string name="parsing_articles">PARSING ARTICLES...</string>
 </resources>

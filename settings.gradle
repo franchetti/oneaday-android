@@ -1,1 +1,1 @@
-include ':iterator', ':app', ':base', ':wear'
+include ':iterator', ':app', ':base'
