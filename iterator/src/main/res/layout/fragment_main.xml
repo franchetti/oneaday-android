@@ -49,11 +49,12 @@
 
         <TextView
             android:id="@+id/progressText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/_34ssp"
+            android:textSize="@dimen/_28ssp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@+id/progressBar"
             app:layout_constraintEnd_toEndOf="@+id/progressBar"
             app:layout_constraintStart_toStartOf="@+id/progressBar"
