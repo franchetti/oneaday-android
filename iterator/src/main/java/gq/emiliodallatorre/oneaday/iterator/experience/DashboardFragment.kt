@@ -63,7 +63,7 @@ class DashboardFragment : Fragment() {
             override fun run() {
                 try {
                     for (i in 0 until adviceList.size) {
-                        if (!adviceList[i].bar!!) {
+                        if (!adviceList[i].bar) {
                             listView.post {
                                 listView.smoothScrollToPositionFromTop(i, 4, 1000)
                             }

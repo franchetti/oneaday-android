@@ -62,7 +62,7 @@ class DashboardLoader {
                 if ((startDay + i) > f) {
                     adviceModel.date = (startDay + i - f)
                     adviceModel.month = (startMonth + 1)
-                    adviceModel.bar = (adviceModel.date!! < currentDay)
+                    adviceModel.bar = (adviceModel.date < currentDay)
                 }
             }
 
@@ -71,7 +71,7 @@ class DashboardLoader {
                 if ((startDay + i) <= g) {
                     adviceModel.date = (startDay + i)
                     adviceModel.month = (startMonth)
-                    adviceModel.bar = (adviceModel.date!! < currentDay)
+                    adviceModel.bar = (adviceModel.date < currentDay)
                 }
                 if ((startDay + i) > f) {
                     adviceModel.date = (startDay + i - f)

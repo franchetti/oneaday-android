@@ -49,10 +49,10 @@ class CustomAdapter internal constructor(private val context: Context, private v
         // Set text in the TextViews.
         holder.dashboardAdvice.text = adviceModel.title
         holder.dashboardDate.text = adviceModel.date.toString()
-        holder.dashboardMonth.text = (context).resources.getStringArray(R.array.months)[adviceModel.month!!]
+        holder.dashboardMonth.text = (context).resources.getStringArray(R.array.months)[adviceModel.month]
 
         // Set if the text has to be strike-through.
-        if (adviceModel.bar!!) holder.dashboardAdvice.paintFlags = holder.dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        if (adviceModel.bar) holder.dashboardAdvice.paintFlags = holder.dashboardAdvice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         else holder.dashboardAdvice.paintFlags = holder.dashboardAdvice.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
 
         // Set a listener for click events.
@@ -61,7 +61,7 @@ class CustomAdapter internal constructor(private val context: Context, private v
             intent.putExtra("advice", adviceModel.title)
             intent.putExtra("dayOfPath", adviceModel.dayOfPath)
             intent.putExtra("date", adviceModel.date)
-            intent.putExtra("month", (context).resources.getStringArray(R.array.months)[adviceModel.month!!])
+            intent.putExtra("month", (context).resources.getStringArray(R.array.months)[adviceModel.month])
             context.startActivity(intent)
         }
 
