@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import gq.emiliodallatorre.oneaday.iterator.R
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.util.*
 
 class DashboardFragment : Fragment() {
@@ -42,7 +43,7 @@ class DashboardFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
     }
 
@@ -59,6 +60,8 @@ class DashboardFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val listView: ListView = (context as Activity).findViewById(R.id.progressList)
+        OverScrollDecoratorHelper.setUpOverScroll(listView)
+
         object : Thread() {
             override fun run() {
                 try {
