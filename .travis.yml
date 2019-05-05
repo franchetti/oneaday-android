@@ -33,7 +33,7 @@ deploy:
   provider: releases
   api_key:
     secure: fDuFVWMP0i+RJnwolnDy/ETumzJcSRQpW40vSSO0xy969myJhyo67OBcStYLm+yzENfMLYkotu5Kd1sWPYU+oH0M2YYft1eykGHt6ryN2jPnEhJRlQ2uD2SY3vPY1Rk0N7AjN+RJvAx8QE5JO5gvs9JT/YQVxCTmRYUSeJe9xlSXRXG6q9Gq5PDQEiskikgXlytvHtr6BmzudlArQn7BD/z3BibzsUnoQOhhFsApXsrRjGw6VV3edKj1TeuBuZRww35Jr3H6CzrIxeRowFIScRZUTOMA0AQaY5JCore+iYVxw4gfuMCbt/rayS1XGwrTfFXb2LYadN62rxBbKtwyk2UlMyWXqYxetK7HfcBn5S91CyNGsBDpsa/sDL0Y43vEX+6uCTLa9G3KQdXYnnYKUqySzCiUF5b4WdyJ/nuDy3cN587Sb26VDV2aV+g8gqPqF9K5ZaTmrwQAqo4XltSuq3c/NLMqutSR2eXWlUkjbcq/AiIqLXAELuDOluIW8JAaIVL2F6H9Z5lVoUEqVHgzbosflZ80Qwn57ygaT0pzmeNWEYyXwoJmiusKvIMbrgn69AYVWhvaG3NjzpKqIOu+VvXV+8cjZiTzk7iTMC2LZHsFDInXWVTu1Vrzqi6lC51iHPes2bg+Dmixov1xcc/x38fw0K9o19G7KQgyrc+PeyY=
-  file: "/home/travis/build/franchetti/oneaday-android/app/build/outputs/apk/release/*"
+  file: "/home/travis/build/franchetti/oneaday-android/app/release/*"
   on:
     repo: franchetti/oneaday-android
     branch: wear-abled
