@@ -46,8 +46,11 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
 
     // Add support for bouncing scroll.
     implementation 'me.everything:overscroll-decor-android:1.0.4'
+
+    // Add support for Wear OS.
+    implementation 'com.google.android.gms:play-services-wearable:16.0.1'
 }
