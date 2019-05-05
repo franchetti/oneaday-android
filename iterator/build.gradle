@@ -52,5 +52,6 @@ dependencies {
     implementation 'me.everything:overscroll-decor-android:1.0.4'
 
     // Add support for Wear OS.
-    implementation 'com.google.android.gms:play-services-wearable:16.0.1'
+    /*implementation 'com.google.android.gms:play-services-wearable:16.0.1'
+    wearApp project(':wear')*/
 }
